@@ -1,6 +1,5 @@
 """Scrape “Popular Quotes” on Goodreads using Requests-HTML; sync version."""
 
-import os
 import json
 import time
 import random
@@ -10,7 +9,6 @@ from requests_html import HTMLSession
 BASE_URL = 'https://www.goodreads.com/quotes'
 NUM_PAGES = 100
 URLS = [f'{BASE_URL}?page={i}' for i in range(1, (NUM_PAGES + 1))]
-WAIT_TIME = random.random() * 2
 
 
 def get_page_quotes(session, url):
@@ -44,7 +42,7 @@ def main(urls, filename='quotes'):
     for i, url in enumerate(urls, start=1):
         page_quotes = get_page_quotes(session, url)
         result.extend(page_quotes)
-        time.sleep(WAIT_TIME)
+        time.sleep(random.random() * 2)
 
     with open(f'{filename}.json', 'w', encoding='utf-8') as f:
         json.dump(result, f, indent=4, ensure_ascii=False)
