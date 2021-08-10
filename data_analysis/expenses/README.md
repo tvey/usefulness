@@ -6,7 +6,7 @@ Those who track their expenses can gain useful insights from this data.
 
 ## Mock data
 
-Fake data in [expenses.csv]() is an example of how an exported file can be formatted.
+Fake data in [expenses.csv](https://github.com/tvey/usefulness/blob/a446bf49cd2056f6c30ccaab6efa12a82614b4a6/data_analysis/expenses/expenses.csv) is an example of how an exported file can be formatted.
 
 Currency of the example (prices) — Russian ruble, but it has does not influence the results.
 
