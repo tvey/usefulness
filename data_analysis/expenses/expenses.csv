@@ -1,0 +1,1339 @@
+"date","category","description","amount"
+"2020-01-01","bills","rent",40000
+"2020-01-01","bills","electricity",800
+"2020-01-01","bills","water",1500
+"2020-01-01","bills","internet",500
+"2020-01-01","bills","mobile",1000
+"2020-01-01","bills","metro",1500
+"2020-01-01","bills","bus",2200
+"2020-01-01","food","milk",60
+"2020-01-01","clothing","tee",2000
+"2020-01-01","food","nuts",300
+"2020-01-02","household","dish wash gel",100
+"2020-01-02","household","dish sponges",50
+"2020-01-02","food","bananas",80
+"2020-01-02","food","lemons",80
+"2020-01-02","food","rice",80
+"2020-01-03","household","liquid soap",100
+"2020-01-03","junk","candy bar",50
+"2020-01-04","household","razors",150
+"2020-01-04","household","toothpaste",200
+"2020-01-04","junk","dark chocolate",120
+"2020-01-04","household","floss",200
+"2020-01-05","household","razors",150
+"2020-01-05","household","razors",150
+"2020-01-05","food","tomatoes",80
+"2020-01-05","household","dish sponges",50
+"2020-01-06","food","oranges",80
+"2020-01-06","food","oats",60
+"2020-01-06","household","cleaner",150
+"2020-01-07","food","butter",150
+"2020-01-07","junk","candy bar",50
+"2020-01-07","household","toothpaste",200
+"2020-01-08","food","coffee",400
+"2020-01-08","food","apples",80
+"2020-01-08","household","garbage bags",100
+"2020-01-09","junk","latte",110
+"2020-01-09","junk","cake",100
+"2020-01-09","food","bread",60
+"2020-01-10","household","cleaner",150
+"2020-01-10","food","onions",50
+"2020-01-10","household","shampoo",200
+"2020-01-11","junk","yet another ice cream",60
+"2020-01-11","junk","dark chocolate",120
+"2020-01-11","household","dish wash gel",100
+"2020-01-11","food","potatoes",60
+"2020-01-11","food","cream cheese",100
+"2020-01-12","food","cottage cheese",100
+"2020-01-12","clothing","tee",2000
+"2020-01-12","food","coffee",400
+"2020-01-12","food","another cheese",300
+"2020-01-13","junk","dark chocolate",120
+"2020-01-13","food","buckwheat",80
+"2020-01-13","junk","americano",90
+"2020-01-14","junk","another cookies",80
+"2020-01-14","food","eggs",100
+"2020-01-14","food","olive oil",350
+"2020-01-14","junk","yet another ice cream",60
+"2020-01-14","junk","cake",100
+"2020-01-15","food","tomatoes",80
+"2020-01-15","health","doctor visit",2000
+"2020-01-16","household","paper towels",100
+"2020-01-16","food","fish",300
+"2020-01-16","household","toothbrushes",200
+"2020-01-16","food","bananas",80
+"2020-01-16","food","bananas",80
+"2020-01-17","food","millet",80
+"2020-01-17","household","shampoo",200
+"2020-01-18","junk","ice cream",100
+"2020-01-18","household","toilet paper",150
+"2020-01-19","household","liquid soap",100
+"2020-01-19","food","eggs",100
+"2020-01-19","household","shampoo",200
+"2020-01-19","household","washing liquid",200
+"2020-01-19","junk","dark chocolate",120
+"2020-01-20","food","yogurt",50
+"2020-01-20","junk","yet another ice cream",60
+"2020-01-20","food","milk",60
+"2020-01-20","household","liquid soap",100
+"2020-01-21","food","onions",50
+"2020-01-21","food","buckwheat",80
+"2020-01-21","junk","coffee",110
+"2020-01-21","junk","another ice cream",80
+"2020-01-21","food","carrots",50
+"2020-01-22","household","washing powder",200
+"2020-01-22","food","bananas",80
+"2020-01-23","food","chicken",300
+"2020-01-23","household","toothpaste",200
+"2020-01-23","food","tea",200
+"2020-01-23","junk","dark chocolate",120
+"2020-01-23","food","olive oil",350
+"2020-01-24","food","milk",60
+"2020-01-24","food","cream cheese",100
+"2020-01-25","food","yogurt",50
+"2020-01-25","junk","chewing gum",40
+"2020-01-25","food","milk",60
+"2020-01-25","household","dish sponges",50
+"2020-01-25","health","doctor visit",2000
+"2020-01-26","household","toothpaste",200
+"2020-01-26","household","toilet paper",150
+"2020-01-26","food","another cheese",300
+"2020-01-26","food","fish",300
+"2020-01-26","food","oats",60
+"2020-01-27","food","apples",80
+"2020-01-27","food","peppers",80
+"2020-01-27","food","beans",120
+"2020-01-27","household","toothpaste",200
+"2020-01-28","household","floss",200
+"2020-01-28","junk","latte",110
+"2020-01-28","health","doctor visit",2000
+"2020-01-29","household","shampoo",200
+"2020-01-29","food","onions",50
+"2020-01-30","household","toothbrushes",200
+"2020-01-30","food","rice",80
+"2020-01-30","household","paper towels",100
+"2020-01-30","food","chicken",300
+"2020-01-30","food","eggs",100
+"2020-01-31","junk","yet another ice cream",60
+"2020-01-31","food","tomatoes",80
+"2020-01-31","household","washing liquid",200
+"2020-01-31","household","paper towels",100
+"2020-02-01","bills","rent",40000
+"2020-02-01","bills","electricity",800
+"2020-02-01","bills","water",1500
+"2020-02-01","bills","internet",500
+"2020-02-01","bills","mobile",1000
+"2020-02-01","bills","metro",1500
+"2020-02-01","bills","bus",2200
+"2020-02-01","junk","americano",90
+"2020-02-01","food","apples",80
+"2020-02-01","household","paper towels",100
+"2020-02-01","household","washing powder",200
+"2020-02-02","food","tea",200
+"2020-02-02","food","olive oil",350
+"2020-02-02","food","nuts",300
+"2020-02-03","health","doctor visit",2000
+"2020-02-03","household","wipes",100
+"2020-02-04","health","medical tests",1000
+"2020-02-04","food","lemons",80
+"2020-02-04","clothing","shoes",4000
+"2020-02-04","food","tomatoes",80
+"2020-02-05","household","liquid soap",100
+"2020-02-05","food","milk",60
+"2020-02-05","food","oranges",80
+"2020-02-05","food","yogurt",50
+"2020-02-06","health","doctor visit",2000
+"2020-02-06","household","dish sponges",50
+"2020-02-06","household","wipes",100
+"2020-02-06","health","doctor visit",2000
+"2020-02-06","health","medical tests",1000
+"2020-02-07","household","toilet paper",150
+"2020-02-07","food","onions",50
+"2020-02-07","food","beans",120
+"2020-02-07","food","coffee",400
+"2020-02-08","food","cucumbers",80
+"2020-02-08","junk","white chocolate",100
+"2020-02-09","junk","chocolate",120
+"2020-02-09","household","dish wash gel",100
+"2020-02-09","food","another cheese",300
+"2020-02-09","junk","americano",90
+"2020-02-10","junk","chewing gum",40
+"2020-02-10","food","buckwheat",80
+"2020-02-10","junk","another ice cream",80
+"2020-02-10","food","yogurt",50
+"2020-02-11","junk","white chocolate",100
+"2020-02-11","household","paper towels",100
+"2020-02-11","household","shampoo",200
+"2020-02-11","food","tomatoes",80
+"2020-02-11","food","onions",50
+"2020-02-12","food","oats",60
+"2020-02-12","junk","dark chocolate",120
+"2020-02-12","food","eggs",100
+"2020-02-12","food","tea",200
+"2020-02-12","household","wipes",100
+"2020-02-13","health","medical tests",1000
+"2020-02-13","household","soap",70
+"2020-02-13","food","beans",120
+"2020-02-13","food","bread",60
+"2020-02-14","household","toilet paper",150
+"2020-02-14","junk","yet another ice cream",60
+"2020-02-14","food","cheese",300
+"2020-02-15","food","tomatoes",80
+"2020-02-15","food","millet",80
+"2020-02-16","household","paper towels",100
+"2020-02-16","food","carrots",50
+"2020-02-16","household","floss",200
+"2020-02-17","junk","dark chocolate",120
+"2020-02-17","food","another cheese",300
+"2020-02-18","food","potatoes",60
+"2020-02-18","junk","latte",110
+"2020-02-19","household","dish sponges",50
+"2020-02-19","food","bread",60
+"2020-02-19","food","tea",200
+"2020-02-19","junk","white chocolate",100
+"2020-02-20","food","tomatoes",80
+"2020-02-20","junk","chewing gum",40
+"2020-02-20","junk","americano",90
+"2020-02-20","junk","coffee",110
+"2020-02-20","household","garbage bags",100
+"2020-02-21","food","olive oil",350
+"2020-02-21","food","bread",60
+"2020-02-21","junk","ice cream",100
+"2020-02-21","junk","ice cream",100
+"2020-02-22","junk","white chocolate",100
+"2020-02-22","household","toilet paper",150
+"2020-02-22","household","liquid soap",100
+"2020-02-22","food","millet",80
+"2020-02-22","food","cucumbers",80
+"2020-02-23","health","meds",1000
+"2020-02-23","junk","bepis",60
+"2020-02-24","household","dish wash gel",100
+"2020-02-24","health","medical tests",1000
+"2020-02-24","food","eggs",100
+"2020-02-24","food","fish",300
+"2020-02-24","junk","coffee",110
+"2020-02-25","household","washing powder",200
+"2020-02-25","food","cheese",300
+"2020-02-26","food","milk",60
+"2020-02-26","food","millet",80
+"2020-02-26","junk","dark chocolate",120
+"2020-02-26","household","cleaner",150
+"2020-02-26","household","floss",200
+"2020-02-27","health","meds",1000
+"2020-02-27","junk","americano",90
+"2020-02-27","household","toothbrushes",200
+"2020-02-27","food","olive oil",350
+"2020-02-27","food","peppers",80
+"2020-02-28","household","soap",70
+"2020-02-28","food","coffee",400
+"2020-02-28","junk","dark chocolate",120
+"2020-02-29","household","paper towels",100
+"2020-02-29","food","chicken",300
+"2020-02-29","food","oats",60
+"2020-02-29","household","razors",150
+"2020-03-01","bills","rent",40000
+"2020-03-01","bills","electricity",800
+"2020-03-01","bills","water",1500
+"2020-03-01","bills","internet",500
+"2020-03-01","bills","mobile",1000
+"2020-03-01","bills","metro",1500
+"2020-03-01","bills","bus",2200
+"2020-03-01","household","toothpaste",200
+"2020-03-01","household","toothpaste",200
+"2020-03-01","junk","white chocolate",100
+"2020-03-01","food","eggs",100
+"2020-03-02","food","apples",80
+"2020-03-02","food","apples",80
+"2020-03-03","health","doctor visit",2000
+"2020-03-03","food","carrots",50
+"2020-03-04","clothing","tee",2000
+"2020-03-04","food","potatoes",60
+"2020-03-05","food","buckwheat",80
+"2020-03-05","junk","chips",100
+"2020-03-05","food","fish",300
+"2020-03-06","food","beans",120
+"2020-03-06","food","bread",60
+"2020-03-07","food","cucumbers",80
+"2020-03-07","household","cleaner",150
+"2020-03-07","household","shampoo",200
+"2020-03-08","food","eggs",100
+"2020-03-08","food","coffee",400
+"2020-03-08","junk","takeaway coffee",110
+"2020-03-08","food","yogurt",50
+"2020-03-08","food","chicken",300
+"2020-03-09","food","tea",200
+"2020-03-09","junk","chocolate",120
+"2020-03-09","junk","another ice cream",80
+"2020-03-09","clothing","pants",2000
+"2020-03-09","food","oats",60
+"2020-03-10","household","floss",200
+"2020-03-10","food","butter",150
+"2020-03-11","food","oranges",80
+"2020-03-11","junk","dark chocolate",120
+"2020-03-11","clothing","shoes",4000
+"2020-03-12","food","apples",80
+"2020-03-12","household","toothbrushes",200
+"2020-03-12","household","garbage bags",100
+"2020-03-13","household","razors",150
+"2020-03-13","food","cream cheese",100
+"2020-03-13","clothing","pants",2000
+"2020-03-13","food","olive oil",350
+"2020-03-14","food","another cheese",300
+"2020-03-14","household","dish sponges",50
+"2020-03-14","household","washing powder",200
+"2020-03-15","junk","another ice cream",80
+"2020-03-15","food","millet",80
+"2020-03-16","health","medical tests",1000
+"2020-03-16","junk","cookies",80
+"2020-03-16","household","floss",200
+"2020-03-16","household","paper towels",100
+"2020-03-17","junk","yet another ice cream",60
+"2020-03-17","food","lemons",80
+"2020-03-18","food","bread",60
+"2020-03-18","household","razors",150
+"2020-03-19","household","soap",70
+"2020-03-19","food","nuts",300
+"2020-03-19","food","eggs",100
+"2020-03-19","food","olive oil",350
+"2020-03-19","junk","cake",100
+"2020-03-20","junk","another ice cream",80
+"2020-03-20","household","wipes",100
+"2020-03-20","food","fish",300
+"2020-03-20","food","tea",200
+"2020-03-21","food","butter",150
+"2020-03-21","food","bananas",80
+"2020-03-21","junk","cake",100
+"2020-03-22","household","garbage bags",100
+"2020-03-22","junk","cake",100
+"2020-03-23","junk","coffee",110
+"2020-03-23","household","paper towels",100
+"2020-03-23","health","doctor visit",2000
+"2020-03-23","household","dish sponges",50
+"2020-03-23","junk","latte",110
+"2020-03-24","food","apples",80
+"2020-03-24","health","meds",1000
+"2020-03-24","junk","chips",100
+"2020-03-24","junk","yet another ice cream",60
+"2020-03-25","food","butter",150
+"2020-03-25","junk","latte",110
+"2020-03-26","food","butter",150
+"2020-03-26","junk","cookies",80
+"2020-03-26","junk","latte",110
+"2020-03-27","household","shampoo",200
+"2020-03-27","food","chicken",300
+"2020-03-27","food","yogurt",50
+"2020-03-28","junk","another ice cream",80
+"2020-03-28","junk","coffee",110
+"2020-03-28","food","coffee",400
+"2020-03-28","junk","white chocolate",100
+"2020-03-28","food","olive oil",350
+"2020-03-29","food","oranges",80
+"2020-03-29","food","buckwheat",80
+"2020-03-29","clothing","pants",2000
+"2020-03-29","household","garbage bags",100
+"2020-03-30","clothing","pants",2000
+"2020-03-30","household","washing liquid",200
+"2020-03-30","health","doctor visit",2000
+"2020-03-31","junk","another ice cream",80
+"2020-03-31","health","meds",1000
+"2020-03-31","household","liquid soap",100
+"2020-03-31","junk","cookies",80
+"2020-04-01","bills","rent",40000
+"2020-04-01","bills","electricity",800
+"2020-04-01","bills","water",1500
+"2020-04-01","bills","internet",500
+"2020-04-01","bills","mobile",1000
+"2020-04-01","bills","metro",1500
+"2020-04-01","bills","bus",2200
+"2020-04-01","household","floss",200
+"2020-04-01","food","fish",300
+"2020-04-01","food","buckwheat",80
+"2020-04-01","food","tomatoes",80
+"2020-04-01","food","yogurt",50
+"2020-04-02","junk","cake",100
+"2020-04-02","junk","latte",110
+"2020-04-02","household","paper towels",100
+"2020-04-02","household","toothbrushes",200
+"2020-04-03","junk","takeaway coffee",110
+"2020-04-03","household","wipes",100
+"2020-04-03","household","wipes",100
+"2020-04-03","food","lemons",80
+"2020-04-03","household","liquid soap",100
+"2020-04-04","junk","cake",100
+"2020-04-04","food","rice",80
+"2020-04-05","junk","chips",100
+"2020-04-05","food","apples",80
+"2020-04-05","food","peppers",80
+"2020-04-05","food","oranges",80
+"2020-04-06","health","doctor visit",2000
+"2020-04-06","household","wipes",100
+"2020-04-07","food","buckwheat",80
+"2020-04-07","junk","coffee",110
+"2020-04-08","household","liquid soap",100
+"2020-04-08","food","yogurt",50
+"2020-04-08","household","washing powder",200
+"2020-04-08","household","dish wash gel",100
+"2020-04-09","junk","candy bar",50
+"2020-04-09","junk","bepis",60
+"2020-04-09","food","millet",80
+"2020-04-10","household","wipes",100
+"2020-04-10","household","shampoo",200
+"2020-04-11","household","washing liquid",200
+"2020-04-11","food","milk",60
+"2020-04-11","household","cleaner",150
+"2020-04-12","junk","chocolate",120
+"2020-04-12","junk","takeaway coffee",110
+"2020-04-12","junk","chips",100
+"2020-04-13","food","fish",300
+"2020-04-13","food","milk",60
+"2020-04-13","household","garbage bags",100
+"2020-04-14","food","bananas",80
+"2020-04-14","junk","bepis",60
+"2020-04-14","food","bread",60
+"2020-04-14","household","wipes",100
+"2020-04-15","household","washing powder",200
+"2020-04-15","food","another cheese",300
+"2020-04-15","food","oranges",80
+"2020-04-16","food","chicken",300
+"2020-04-16","household","garbage bags",100
+"2020-04-16","food","rice",80
+"2020-04-16","food","butter",150
+"2020-04-16","household","cleaner",150
+"2020-04-17","food","buckwheat",80
+"2020-04-17","food","beans",120
+"2020-04-17","junk","americano",90
+"2020-04-17","food","nuts",300
+"2020-04-17","junk","americano",90
+"2020-04-18","junk","coffee",110
+"2020-04-18","health","doctor visit",2000
+"2020-04-19","food","cottage cheese",100
+"2020-04-19","health","meds",1000
+"2020-04-20","food","apples",80
+"2020-04-20","household","toothpaste",200
+"2020-04-20","household","toothpaste",200
+"2020-04-20","junk","yet another ice cream",60
+"2020-04-21","clothing","shoes",4000
+"2020-04-21","food","olive oil",350
+"2020-04-21","food","carrots",50
+"2020-04-21","food","rice",80
+"2020-04-21","household","washing powder",200
+"2020-04-22","health","medical tests",1000
+"2020-04-22","household","razors",150
+"2020-04-22","junk","chips",100
+"2020-04-22","household","cleaner",150
+"2020-04-23","junk","chewing gum",40
+"2020-04-23","household","razors",150
+"2020-04-24","food","cucumbers",80
+"2020-04-24","household","toilet paper",150
+"2020-04-24","household","garbage bags",100
+"2020-04-24","junk","another cookies",80
+"2020-04-25","food","coffee",400
+"2020-04-25","junk","yet another ice cream",60
+"2020-04-25","household","toilet paper",150
+"2020-04-25","food","peppers",80
+"2020-04-25","junk","americano",90
+"2020-04-26","household","soap",70
+"2020-04-26","food","carrots",50
+"2020-04-26","food","cheese",300
+"2020-04-26","food","apples",80
+"2020-04-27","junk","candy bar",50
+"2020-04-27","food","olive oil",350
+"2020-04-28","food","beans",120
+"2020-04-28","health","meds",1000
+"2020-04-28","health","medical tests",1000
+"2020-04-28","food","bananas",80
+"2020-04-29","junk","coffee",110
+"2020-04-29","food","another cheese",300
+"2020-04-29","clothing","tee",2000
+"2020-04-29","household","soap",70
+"2020-04-30","food","apples",80
+"2020-04-30","food","carrots",50
+"2020-04-30","health","meds",1000
+"2020-04-30","clothing","shoes",4000
+"2020-04-30","junk","coffee",110
+"2020-05-01","bills","rent",40000
+"2020-05-01","bills","electricity",800
+"2020-05-01","bills","water",1500
+"2020-05-01","bills","internet",500
+"2020-05-01","bills","mobile",1000
+"2020-05-01","bills","metro",1500
+"2020-05-01","bills","bus",2200
+"2020-05-01","food","yogurt",50
+"2020-05-01","food","peppers",80
+"2020-05-01","household","dish wash gel",100
+"2020-05-01","food","potatoes",60
+"2020-05-02","health","doctor visit",2000
+"2020-05-02","food","coffee",400
+"2020-05-02","food","millet",80
+"2020-05-02","junk","latte",110
+"2020-05-02","junk","yet another ice cream",60
+"2020-05-03","junk","chocolate",120
+"2020-05-03","household","liquid soap",100
+"2020-05-03","junk","cookies",80
+"2020-05-03","household","toothpaste",200
+"2020-05-04","household","soap",70
+"2020-05-04","household","wipes",100
+"2020-05-04","health","meds",1000
+"2020-05-04","food","nuts",300
+"2020-05-05","food","onions",50
+"2020-05-05","junk","dark chocolate",120
+"2020-05-05","junk","bepis",60
+"2020-05-05","food","millet",80
+"2020-05-05","household","garbage bags",100
+"2020-05-06","food","carrots",50
+"2020-05-06","food","butter",150
+"2020-05-06","food","yogurt",50
+"2020-05-06","junk","cake",100
+"2020-05-06","junk","yet another ice cream",60
+"2020-05-07","household","shampoo",200
+"2020-05-07","food","cream cheese",100
+"2020-05-07","health","meds",1000
+"2020-05-08","junk","chips",100
+"2020-05-08","junk","white chocolate",100
+"2020-05-09","food","nuts",300
+"2020-05-09","household","dish wash gel",100
+"2020-05-09","food","tomatoes",80
+"2020-05-09","food","eggs",100
+"2020-05-09","food","carrots",50
+"2020-05-10","household","dish sponges",50
+"2020-05-10","food","carrots",50
+"2020-05-11","junk","another ice cream",80
+"2020-05-11","junk","chips",100
+"2020-05-11","household","paper towels",100
+"2020-05-11","food","oranges",80
+"2020-05-11","food","another cheese",300
+"2020-05-12","junk","coffee",110
+"2020-05-12","junk","takeaway coffee",110
+"2020-05-13","food","oats",60
+"2020-05-13","clothing","pants",2000
+"2020-05-13","food","bananas",80
+"2020-05-13","household","washing liquid",200
+"2020-05-14","food","milk",60
+"2020-05-14","household","toilet paper",150
+"2020-05-14","food","nuts",300
+"2020-05-15","household","shampoo",200
+"2020-05-15","clothing","pants",2000
+"2020-05-15","food","cucumbers",80
+"2020-05-15","food","bread",60
+"2020-05-15","health","doctor visit",2000
+"2020-05-16","food","butter",150
+"2020-05-16","food","cream cheese",100
+"2020-05-16","food","buckwheat",80
+"2020-05-16","clothing","shoes",4000
+"2020-05-17","food","yogurt",50
+"2020-05-17","food","bananas",80
+"2020-05-17","clothing","shoes",4000
+"2020-05-17","household","wipes",100
+"2020-05-18","food","onions",50
+"2020-05-18","food","rice",80
+"2020-05-18","food","buckwheat",80
+"2020-05-18","household","shampoo",200
+"2020-05-19","junk","dark chocolate",120
+"2020-05-19","household","soap",70
+"2020-05-19","junk","coffee",110
+"2020-05-20","food","buckwheat",80
+"2020-05-20","food","eggs",100
+"2020-05-21","health","doctor visit",2000
+"2020-05-21","food","milk",60
+"2020-05-21","food","eggs",100
+"2020-05-21","food","millet",80
+"2020-05-22","household","washing liquid",200
+"2020-05-22","health","meds",1000
+"2020-05-23","junk","chips",100
+"2020-05-23","junk","latte",110
+"2020-05-23","junk","bepis",60
+"2020-05-24","junk","cookies",80
+"2020-05-24","food","beans",120
+"2020-05-24","food","cucumbers",80
+"2020-05-24","food","tea",200
+"2020-05-24","clothing","tee",2000
+"2020-05-25","household","dish wash gel",100
+"2020-05-25","food","beans",120
+"2020-05-26","junk","chocolate",120
+"2020-05-26","junk","chips",100
+"2020-05-27","junk","americano",90
+"2020-05-27","junk","cookies",80
+"2020-05-27","food","lemons",80
+"2020-05-27","household","dish sponges",50
+"2020-05-27","clothing","tee",2000
+"2020-05-28","food","coffee",400
+"2020-05-28","junk","another cookies",80
+"2020-05-29","clothing","tee",2000
+"2020-05-29","clothing","shoes",4000
+"2020-05-29","health","meds",1000
+"2020-05-29","household","liquid soap",100
+"2020-05-30","food","bananas",80
+"2020-05-30","junk","cake",100
+"2020-05-30","food","millet",80
+"2020-05-30","household","garbage bags",100
+"2020-05-31","food","yogurt",50
+"2020-05-31","food","oranges",80
+"2020-05-31","junk","chocolate",120
+"2020-06-01","bills","rent",40000
+"2020-06-01","bills","electricity",800
+"2020-06-01","bills","water",1500
+"2020-06-01","bills","internet",500
+"2020-06-01","bills","mobile",1000
+"2020-06-01","bills","metro",1500
+"2020-06-01","bills","bus",2200
+"2020-06-01","clothing","pants",2000
+"2020-06-01","clothing","shoes",4000
+"2020-06-01","food","tomatoes",80
+"2020-06-01","food","apples",80
+"2020-06-02","household","paper towels",100
+"2020-06-02","junk","white chocolate",100
+"2020-06-02","food","eggs",100
+"2020-06-03","food","buckwheat",80
+"2020-06-03","junk","latte",110
+"2020-06-04","household","cleaner",150
+"2020-06-04","food","yogurt",50
+"2020-06-04","food","tomatoes",80
+"2020-06-05","food","another cheese",300
+"2020-06-05","junk","another ice cream",80
+"2020-06-05","household","dish wash gel",100
+"2020-06-06","junk","another ice cream",80
+"2020-06-06","household","toilet paper",150
+"2020-06-06","household","dish wash gel",100
+"2020-06-06","food","bread",60
+"2020-06-07","food","onions",50
+"2020-06-07","food","tea",200
+"2020-06-08","food","another cheese",300
+"2020-06-08","food","another cheese",300
+"2020-06-08","food","oats",60
+"2020-06-09","junk","cookies",80
+"2020-06-09","junk","chips",100
+"2020-06-09","food","nuts",300
+"2020-06-09","household","razors",150
+"2020-06-10","food","bread",60
+"2020-06-10","household","toilet paper",150
+"2020-06-10","food","lemons",80
+"2020-06-11","clothing","tee",2000
+"2020-06-11","food","fish",300
+"2020-06-12","food","yogurt",50
+"2020-06-12","food","buckwheat",80
+"2020-06-12","junk","takeaway coffee",110
+"2020-06-12","food","milk",60
+"2020-06-12","food","nuts",300
+"2020-06-13","junk","chewing gum",40
+"2020-06-13","household","toilet paper",150
+"2020-06-13","food","buckwheat",80
+"2020-06-13","food","cream cheese",100
+"2020-06-13","food","buckwheat",80
+"2020-06-14","junk","another cookies",80
+"2020-06-14","clothing","shoes",4000
+"2020-06-14","food","another cheese",300
+"2020-06-14","household","toothbrushes",200
+"2020-06-15","household","toothbrushes",200
+"2020-06-15","junk","cookies",80
+"2020-06-15","junk","candy bar",50
+"2020-06-15","junk","yet another ice cream",60
+"2020-06-16","food","tomatoes",80
+"2020-06-16","household","toilet paper",150
+"2020-06-16","food","millet",80
+"2020-06-16","household","washing liquid",200
+"2020-06-16","junk","coffee",110
+"2020-06-17","clothing","shoes",4000
+"2020-06-17","household","liquid soap",100
+"2020-06-17","food","eggs",100
+"2020-06-17","food","nuts",300
+"2020-06-18","food","buckwheat",80
+"2020-06-18","food","beans",120
+"2020-06-18","food","nuts",300
+"2020-06-19","junk","another cookies",80
+"2020-06-19","junk","candy bar",50
+"2020-06-20","food","eggs",100
+"2020-06-20","food","another cheese",300
+"2020-06-21","food","onions",50
+"2020-06-21","junk","cake",100
+"2020-06-21","household","wipes",100
+"2020-06-22","junk","latte",110
+"2020-06-22","junk","latte",110
+"2020-06-22","junk","chocolate",120
+"2020-06-23","junk","another ice cream",80
+"2020-06-23","household","dish wash gel",100
+"2020-06-23","food","fish",300
+"2020-06-24","food","millet",80
+"2020-06-24","food","cheese",300
+"2020-06-24","junk","coffee",110
+"2020-06-24","food","coffee",400
+"2020-06-24","household","washing powder",200
+"2020-06-25","food","chicken",300
+"2020-06-25","junk","dark chocolate",120
+"2020-06-25","junk","another cookies",80
+"2020-06-26","health","medical tests",1000
+"2020-06-26","household","razors",150
+"2020-06-27","junk","bepis",60
+"2020-06-27","food","cottage cheese",100
+"2020-06-27","food","onions",50
+"2020-06-27","household","cleaner",150
+"2020-06-27","food","carrots",50
+"2020-06-28","clothing","pants",2000
+"2020-06-28","junk","yet another ice cream",60
+"2020-06-28","food","millet",80
+"2020-06-28","clothing","tee",2000
+"2020-06-28","food","cheese",300
+"2020-06-29","food","chicken",300
+"2020-06-29","junk","latte",110
+"2020-06-29","food","potatoes",60
+"2020-06-29","junk","white chocolate",100
+"2020-06-29","junk","americano",90
+"2020-06-30","food","lemons",80
+"2020-06-30","junk","yet another ice cream",60
+"2020-06-30","food","oats",60
+"2020-06-30","junk","chips",100
+"2020-07-01","bills","rent",40000
+"2020-07-01","bills","electricity",800
+"2020-07-01","bills","water",1500
+"2020-07-01","bills","internet",500
+"2020-07-01","bills","mobile",1000
+"2020-07-01","bills","metro",1500
+"2020-07-01","bills","bus",2200
+"2020-07-01","household","dish sponges",50
+"2020-07-01","food","apples",80
+"2020-07-02","food","buckwheat",80
+"2020-07-02","food","oranges",80
+"2020-07-02","junk","white chocolate",100
+"2020-07-02","food","cream cheese",100
+"2020-07-02","food","onions",50
+"2020-07-03","food","apples",80
+"2020-07-03","food","cucumbers",80
+"2020-07-03","junk","yet another ice cream",60
+"2020-07-04","food","olive oil",350
+"2020-07-04","junk","another cookies",80
+"2020-07-04","junk","white chocolate",100
+"2020-07-04","household","razors",150
+"2020-07-04","junk","candy bar",50
+"2020-07-05","junk","latte",110
+"2020-07-05","food","cucumbers",80
+"2020-07-06","junk","another cookies",80
+"2020-07-06","junk","dark chocolate",120
+"2020-07-06","food","yogurt",50
+"2020-07-07","health","medical tests",1000
+"2020-07-07","food","onions",50
+"2020-07-07","household","garbage bags",100
+"2020-07-08","health","doctor visit",2000
+"2020-07-08","junk","ice cream",100
+"2020-07-08","junk","cookies",80
+"2020-07-09","junk","another ice cream",80
+"2020-07-09","household","wipes",100
+"2020-07-09","household","washing powder",200
+"2020-07-09","junk","chips",100
+"2020-07-10","food","cottage cheese",100
+"2020-07-10","food","cheese",300
+"2020-07-10","food","onions",50
+"2020-07-11","food","tea",200
+"2020-07-11","health","doctor visit",2000
+"2020-07-12","junk","chips",100
+"2020-07-12","junk","takeaway coffee",110
+"2020-07-12","food","bread",60
+"2020-07-13","food","potatoes",60
+"2020-07-13","food","another cheese",300
+"2020-07-13","junk","chewing gum",40
+"2020-07-14","household","cleaner",150
+"2020-07-14","household","toothpaste",200
+"2020-07-14","food","chicken",300
+"2020-07-15","junk","another cookies",80
+"2020-07-15","food","coffee",400
+"2020-07-15","food","butter",150
+"2020-07-15","food","oranges",80
+"2020-07-15","junk","yet another ice cream",60
+"2020-07-16","household","toothbrushes",200
+"2020-07-16","household","toothpaste",200
+"2020-07-17","household","dish sponges",50
+"2020-07-17","food","cheese",300
+"2020-07-17","household","paper towels",100
+"2020-07-17","food","cucumbers",80
+"2020-07-17","household","dish wash gel",100
+"2020-07-18","food","onions",50
+"2020-07-18","household","toilet paper",150
+"2020-07-19","household","floss",200
+"2020-07-19","food","cottage cheese",100
+"2020-07-20","household","shampoo",200
+"2020-07-20","food","bananas",80
+"2020-07-20","household","floss",200
+"2020-07-21","health","doctor visit",2000
+"2020-07-21","junk","another ice cream",80
+"2020-07-21","household","liquid soap",100
+"2020-07-22","household","toilet paper",150
+"2020-07-22","food","yogurt",50
+"2020-07-22","household","toilet paper",150
+"2020-07-22","household","dish wash gel",100
+"2020-07-23","household","liquid soap",100
+"2020-07-23","household","dish wash gel",100
+"2020-07-24","food","chicken",300
+"2020-07-24","household","floss",200
+"2020-07-24","food","beans",120
+"2020-07-24","junk","another ice cream",80
+"2020-07-24","household","dish wash gel",100
+"2020-07-25","food","olive oil",350
+"2020-07-25","junk","white chocolate",100
+"2020-07-25","food","rice",80
+"2020-07-26","junk","yet another ice cream",60
+"2020-07-26","junk","latte",110
+"2020-07-27","household","floss",200
+"2020-07-27","household","cleaner",150
+"2020-07-27","junk","cookies",80
+"2020-07-27","food","beans",120
+"2020-07-27","junk","ice cream",100
+"2020-07-28","clothing","tee",2000
+"2020-07-28","junk","cake",100
+"2020-07-28","food","apples",80
+"2020-07-28","junk","takeaway coffee",110
+"2020-07-28","food","lemons",80
+"2020-07-29","food","milk",60
+"2020-07-29","food","another cheese",300
+"2020-07-29","household","garbage bags",100
+"2020-07-29","junk","candy bar",50
+"2020-07-29","junk","bepis",60
+"2020-07-30","food","oranges",80
+"2020-07-30","food","tea",200
+"2020-07-30","food","beans",120
+"2020-07-30","food","oats",60
+"2020-07-31","food","cream cheese",100
+"2020-07-31","food","lemons",80
+"2020-07-31","household","soap",70
+"2020-07-31","food","fish",300
+"2020-07-31","household","floss",200
+"2020-08-01","bills","rent",40000
+"2020-08-01","bills","electricity",800
+"2020-08-01","bills","water",1500
+"2020-08-01","bills","internet",500
+"2020-08-01","bills","mobile",1000
+"2020-08-01","bills","metro",1500
+"2020-08-01","bills","bus",2200
+"2020-08-01","junk","another ice cream",80
+"2020-08-01","clothing","pants",2000
+"2020-08-01","household","paper towels",100
+"2020-08-02","household","paper towels",100
+"2020-08-02","household","dish wash gel",100
+"2020-08-03","food","cottage cheese",100
+"2020-08-03","household","dish wash gel",100
+"2020-08-03","food","lemons",80
+"2020-08-04","food","peppers",80
+"2020-08-04","household","toothbrushes",200
+"2020-08-04","health","doctor visit",2000
+"2020-08-04","food","coffee",400
+"2020-08-04","junk","coffee",110
+"2020-08-05","food","peppers",80
+"2020-08-05","junk","yet another ice cream",60
+"2020-08-05","household","cleaner",150
+"2020-08-05","food","lemons",80
+"2020-08-05","junk","coffee",110
+"2020-08-06","clothing","pants",2000
+"2020-08-06","household","toothbrushes",200
+"2020-08-06","junk","americano",90
+"2020-08-06","junk","coffee",110
+"2020-08-07","food","cottage cheese",100
+"2020-08-07","food","tomatoes",80
+"2020-08-07","clothing","shoes",4000
+"2020-08-08","junk","candy bar",50
+"2020-08-08","household","garbage bags",100
+"2020-08-09","household","dish wash gel",100
+"2020-08-09","household","shampoo",200
+"2020-08-09","household","paper towels",100
+"2020-08-09","food","onions",50
+"2020-08-10","food","coffee",400
+"2020-08-10","health","meds",1000
+"2020-08-10","food","eggs",100
+"2020-08-10","food","yogurt",50
+"2020-08-11","household","paper towels",100
+"2020-08-11","household","razors",150
+"2020-08-11","junk","dark chocolate",120
+"2020-08-11","food","bread",60
+"2020-08-12","food","butter",150
+"2020-08-12","junk","cookies",80
+"2020-08-12","food","yogurt",50
+"2020-08-13","household","cleaner",150
+"2020-08-13","food","potatoes",60
+"2020-08-14","food","potatoes",60
+"2020-08-14","household","razors",150
+"2020-08-14","junk","cookies",80
+"2020-08-14","junk","yet another ice cream",60
+"2020-08-15","household","wipes",100
+"2020-08-15","health","medical tests",1000
+"2020-08-15","junk","americano",90
+"2020-08-15","junk","latte",110
+"2020-08-15","junk","yet another ice cream",60
+"2020-08-16","junk","another ice cream",80
+"2020-08-16","junk","americano",90
+"2020-08-16","food","apples",80
+"2020-08-16","food","chicken",300
+"2020-08-17","food","buckwheat",80
+"2020-08-17","junk","chocolate",120
+"2020-08-18","food","olive oil",350
+"2020-08-18","food","onions",50
+"2020-08-18","clothing","tee",2000
+"2020-08-19","clothing","shoes",4000
+"2020-08-19","food","bananas",80
+"2020-08-19","food","oats",60
+"2020-08-19","clothing","shoes",4000
+"2020-08-20","food","yogurt",50
+"2020-08-20","junk","chocolate",120
+"2020-08-21","food","apples",80
+"2020-08-21","food","potatoes",60
+"2020-08-21","food","buckwheat",80
+"2020-08-21","food","onions",50
+"2020-08-21","food","eggs",100
+"2020-08-22","food","bread",60
+"2020-08-22","junk","candy bar",50
+"2020-08-22","junk","chocolate",120
+"2020-08-22","clothing","shoes",4000
+"2020-08-22","junk","bepis",60
+"2020-08-23","food","tomatoes",80
+"2020-08-23","junk","takeaway coffee",110
+"2020-08-24","junk","chips",100
+"2020-08-24","food","coffee",400
+"2020-08-25","food","chicken",300
+"2020-08-25","food","tea",200
+"2020-08-26","household","shampoo",200
+"2020-08-26","household","paper towels",100
+"2020-08-27","junk","americano",90
+"2020-08-27","junk","chewing gum",40
+"2020-08-27","food","rice",80
+"2020-08-28","food","rice",80
+"2020-08-28","food","olive oil",350
+"2020-08-29","junk","another cookies",80
+"2020-08-29","junk","ice cream",100
+"2020-08-30","junk","latte",110
+"2020-08-30","food","milk",60
+"2020-08-30","food","bananas",80
+"2020-08-30","food","cheese",300
+"2020-08-31","food","rice",80
+"2020-08-31","food","buckwheat",80
+"2020-08-31","health","doctor visit",2000
+"2020-08-31","junk","takeaway coffee",110
+"2020-09-01","bills","rent",40000
+"2020-09-01","bills","electricity",800
+"2020-09-01","bills","water",1500
+"2020-09-01","bills","internet",500
+"2020-09-01","bills","mobile",1000
+"2020-09-01","bills","metro",1500
+"2020-09-01","bills","bus",2200
+"2020-09-01","household","liquid soap",100
+"2020-09-01","food","millet",80
+"2020-09-01","food","potatoes",60
+"2020-09-02","junk","white chocolate",100
+"2020-09-02","household","toilet paper",150
+"2020-09-02","food","carrots",50
+"2020-09-02","junk","coffee",110
+"2020-09-03","food","another cheese",300
+"2020-09-03","household","toothpaste",200
+"2020-09-03","junk","yet another ice cream",60
+"2020-09-03","junk","takeaway coffee",110
+"2020-09-03","food","buckwheat",80
+"2020-09-04","clothing","shoes",4000
+"2020-09-04","junk","takeaway coffee",110
+"2020-09-05","household","dish wash gel",100
+"2020-09-05","food","millet",80
+"2020-09-05","household","paper towels",100
+"2020-09-06","junk","white chocolate",100
+"2020-09-06","junk","cake",100
+"2020-09-06","junk","bepis",60
+"2020-09-07","junk","yet another ice cream",60
+"2020-09-07","household","toothpaste",200
+"2020-09-07","junk","chocolate",120
+"2020-09-08","junk","chips",100
+"2020-09-08","junk","dark chocolate",120
+"2020-09-08","food","oranges",80
+"2020-09-08","household","paper towels",100
+"2020-09-08","household","cleaner",150
+"2020-09-09","household","paper towels",100
+"2020-09-09","food","onions",50
+"2020-09-09","clothing","pants",2000
+"2020-09-09","household","toilet paper",150
+"2020-09-10","household","toothbrushes",200
+"2020-09-10","food","cream cheese",100
+"2020-09-11","food","chicken",300
+"2020-09-11","food","peppers",80
+"2020-09-12","household","toothbrushes",200
+"2020-09-12","food","buckwheat",80
+"2020-09-12","junk","cake",100
+"2020-09-13","junk","another cookies",80
+"2020-09-13","food","coffee",400
+"2020-09-13","food","tea",200
+"2020-09-13","junk","latte",110
+"2020-09-13","junk","white chocolate",100
+"2020-09-14","junk","chewing gum",40
+"2020-09-14","household","toothpaste",200
+"2020-09-14","junk","americano",90
+"2020-09-14","food","bananas",80
+"2020-09-15","junk","dark chocolate",120
+"2020-09-15","household","liquid soap",100
+"2020-09-15","food","milk",60
+"2020-09-16","health","meds",1000
+"2020-09-16","household","toothbrushes",200
+"2020-09-16","junk","cookies",80
+"2020-09-16","clothing","pants",2000
+"2020-09-17","food","buckwheat",80
+"2020-09-17","household","washing powder",200
+"2020-09-17","junk","dark chocolate",120
+"2020-09-17","food","another cheese",300
+"2020-09-17","health","medical tests",1000
+"2020-09-18","food","coffee",400
+"2020-09-18","junk","candy bar",50
+"2020-09-18","food","eggs",100
+"2020-09-18","food","yogurt",50
+"2020-09-19","junk","chocolate",120
+"2020-09-19","junk","another cookies",80
+"2020-09-19","health","meds",1000
+"2020-09-19","junk","takeaway coffee",110
+"2020-09-20","clothing","shoes",4000
+"2020-09-20","junk","another ice cream",80
+"2020-09-21","food","buckwheat",80
+"2020-09-21","junk","white chocolate",100
+"2020-09-21","food","nuts",300
+"2020-09-21","junk","white chocolate",100
+"2020-09-22","health","meds",1000
+"2020-09-22","junk","cake",100
+"2020-09-22","junk","another ice cream",80
+"2020-09-23","clothing","shoes",4000
+"2020-09-23","household","dish wash gel",100
+"2020-09-23","food","cucumbers",80
+"2020-09-23","junk","another ice cream",80
+"2020-09-24","junk","chocolate",120
+"2020-09-24","clothing","pants",2000
+"2020-09-24","health","doctor visit",2000
+"2020-09-24","household","liquid soap",100
+"2020-09-24","household","razors",150
+"2020-09-25","household","toothbrushes",200
+"2020-09-25","food","nuts",300
+"2020-09-25","clothing","pants",2000
+"2020-09-26","food","tomatoes",80
+"2020-09-26","household","toothpaste",200
+"2020-09-26","junk","ice cream",100
+"2020-09-26","household","razors",150
+"2020-09-26","junk","dark chocolate",120
+"2020-09-27","household","cleaner",150
+"2020-09-27","junk","americano",90
+"2020-09-27","food","coffee",400
+"2020-09-27","food","cheese",300
+"2020-09-27","household","dish wash gel",100
+"2020-09-28","household","toothbrushes",200
+"2020-09-28","junk","chewing gum",40
+"2020-09-29","food","potatoes",60
+"2020-09-29","junk","dark chocolate",120
+"2020-09-29","junk","another ice cream",80
+"2020-09-29","food","peppers",80
+"2020-09-30","junk","cookies",80
+"2020-09-30","junk","takeaway coffee",110
+"2020-09-30","food","oranges",80
+"2020-09-30","junk","candy bar",50
+"2020-10-01","bills","rent",40000
+"2020-10-01","bills","electricity",800
+"2020-10-01","bills","water",1500
+"2020-10-01","bills","internet",500
+"2020-10-01","bills","mobile",1000
+"2020-10-01","bills","metro",1500
+"2020-10-01","bills","bus",2200
+"2020-10-01","food","tomatoes",80
+"2020-10-01","household","shampoo",200
+"2020-10-01","junk","latte",110
+"2020-10-02","junk","latte",110
+"2020-10-02","junk","ice cream",100
+"2020-10-03","household","toothpaste",200
+"2020-10-03","junk","white chocolate",100
+"2020-10-03","junk","yet another ice cream",60
+"2020-10-03","household","toilet paper",150
+"2020-10-03","food","potatoes",60
+"2020-10-04","food","millet",80
+"2020-10-04","health","doctor visit",2000
+"2020-10-05","food","cottage cheese",100
+"2020-10-05","household","washing liquid",200
+"2020-10-05","food","cheese",300
+"2020-10-05","household","washing liquid",200
+"2020-10-05","food","peppers",80
+"2020-10-06","junk","americano",90
+"2020-10-06","food","fish",300
+"2020-10-06","household","toothbrushes",200
+"2020-10-06","junk","chewing gum",40
+"2020-10-07","junk","latte",110
+"2020-10-07","food","another cheese",300
+"2020-10-07","health","meds",1000
+"2020-10-07","health","medical tests",1000
+"2020-10-08","food","cheese",300
+"2020-10-08","junk","chewing gum",40
+"2020-10-09","health","doctor visit",2000
+"2020-10-09","household","dish sponges",50
+"2020-10-09","food","cucumbers",80
+"2020-10-10","household","dish wash gel",100
+"2020-10-10","junk","latte",110
+"2020-10-10","food","bananas",80
+"2020-10-11","food","oats",60
+"2020-10-11","junk","cake",100
+"2020-10-11","household","dish wash gel",100
+"2020-10-11","household","paper towels",100
+"2020-10-12","household","dish sponges",50
+"2020-10-12","household","washing powder",200
+"2020-10-13","health","medical tests",1000
+"2020-10-13","food","onions",50
+"2020-10-13","food","another cheese",300
+"2020-10-13","household","floss",200
+"2020-10-14","junk","yet another ice cream",60
+"2020-10-14","food","apples",80
+"2020-10-14","household","floss",200
+"2020-10-15","junk","latte",110
+"2020-10-15","food","nuts",300
+"2020-10-16","clothing","tee",2000
+"2020-10-16","clothing","tee",2000
+"2020-10-16","health","meds",1000
+"2020-10-16","household","floss",200
+"2020-10-16","household","floss",200
+"2020-10-17","junk","another ice cream",80
+"2020-10-17","food","cucumbers",80
+"2020-10-17","junk","candy bar",50
+"2020-10-18","food","nuts",300
+"2020-10-18","junk","chips",100
+"2020-10-19","food","peppers",80
+"2020-10-19","food","potatoes",60
+"2020-10-19","food","cream cheese",100
+"2020-10-20","health","meds",1000
+"2020-10-20","food","tomatoes",80
+"2020-10-20","food","eggs",100
+"2020-10-20","food","cheese",300
+"2020-10-21","household","wipes",100
+"2020-10-21","food","oats",60
+"2020-10-21","household","wipes",100
+"2020-10-21","food","onions",50
+"2020-10-22","junk","white chocolate",100
+"2020-10-22","junk","candy bar",50
+"2020-10-22","household","toothpaste",200
+"2020-10-23","junk","americano",90
+"2020-10-23","food","coffee",400
+"2020-10-24","junk","chips",100
+"2020-10-24","food","apples",80
+"2020-10-24","household","toilet paper",150
+"2020-10-25","food","tea",200
+"2020-10-25","clothing","shoes",4000
+"2020-10-25","food","fish",300
+"2020-10-26","health","meds",1000
+"2020-10-26","household","toothpaste",200
+"2020-10-26","household","cleaner",150
+"2020-10-26","junk","americano",90
+"2020-10-26","food","bananas",80
+"2020-10-27","food","peppers",80
+"2020-10-27","food","millet",80
+"2020-10-28","food","olive oil",350
+"2020-10-28","food","potatoes",60
+"2020-10-28","food","olive oil",350
+"2020-10-28","food","yogurt",50
+"2020-10-29","junk","latte",110
+"2020-10-29","household","soap",70
+"2020-10-29","food","butter",150
+"2020-10-29","household","liquid soap",100
+"2020-10-30","junk","coffee",110
+"2020-10-30","junk","candy bar",50
+"2020-10-30","food","apples",80
+"2020-10-30","food","chicken",300
+"2020-10-30","food","coffee",400
+"2020-10-31","household","washing liquid",200
+"2020-10-31","household","dish wash gel",100
+"2020-11-01","bills","rent",40000
+"2020-11-01","bills","electricity",800
+"2020-11-01","bills","water",1500
+"2020-11-01","bills","internet",500
+"2020-11-01","bills","mobile",1000
+"2020-11-01","bills","metro",1500
+"2020-11-01","bills","bus",2200
+"2020-11-01","food","rice",80
+"2020-11-01","food","cheese",300
+"2020-11-02","junk","chewing gum",40
+"2020-11-02","food","yogurt",50
+"2020-11-03","junk","americano",90
+"2020-11-03","food","yogurt",50
+"2020-11-03","clothing","pants",2000
+"2020-11-03","food","coffee",400
+"2020-11-04","food","cheese",300
+"2020-11-04","junk","another cookies",80
+"2020-11-04","food","cream cheese",100
+"2020-11-04","household","washing powder",200
+"2020-11-04","junk","takeaway coffee",110
+"2020-11-05","food","chicken",300
+"2020-11-05","junk","bepis",60
+"2020-11-05","junk","cake",100
+"2020-11-05","food","cottage cheese",100
+"2020-11-06","clothing","shoes",4000
+"2020-11-06","junk","latte",110
+"2020-11-06","food","coffee",400
+"2020-11-07","junk","cake",100
+"2020-11-07","health","meds",1000
+"2020-11-07","clothing","pants",2000
+"2020-11-07","junk","coffee",110
+"2020-11-08","health","meds",1000
+"2020-11-08","junk","latte",110
+"2020-11-08","health","meds",1000
+"2020-11-09","food","millet",80
+"2020-11-09","junk","cake",100
+"2020-11-09","junk","candy bar",50
+"2020-11-10","junk","bepis",60
+"2020-11-10","food","coffee",400
+"2020-11-10","food","yogurt",50
+"2020-11-10","household","washing liquid",200
+"2020-11-11","food","peppers",80
+"2020-11-11","food","apples",80
+"2020-11-11","household","toilet paper",150
+"2020-11-12","food","butter",150
+"2020-11-12","household","washing liquid",200
+"2020-11-13","food","beans",120
+"2020-11-13","food","nuts",300
+"2020-11-13","food","olive oil",350
+"2020-11-13","household","toothpaste",200
+"2020-11-13","household","toilet paper",150
+"2020-11-14","junk","candy bar",50
+"2020-11-14","food","apples",80
+"2020-11-14","junk","dark chocolate",120
+"2020-11-15","junk","dark chocolate",120
+"2020-11-15","junk","chips",100
+"2020-11-15","food","rice",80
+"2020-11-15","junk","chewing gum",40
+"2020-11-16","food","tomatoes",80
+"2020-11-16","household","paper towels",100
+"2020-11-17","household","shampoo",200
+"2020-11-17","food","buckwheat",80
+"2020-11-18","junk","coffee",110
+"2020-11-18","food","chicken",300
+"2020-11-18","clothing","pants",2000
+"2020-11-19","food","tea",200
+"2020-11-19","junk","candy bar",50
+"2020-11-19","food","cheese",300
+"2020-11-19","food","lemons",80
+"2020-11-20","food","another cheese",300
+"2020-11-20","household","toothbrushes",200
+"2020-11-20","junk","chips",100
+"2020-11-20","food","eggs",100
+"2020-11-21","junk","cookies",80
+"2020-11-21","food","onions",50
+"2020-11-21","clothing","shoes",4000
+"2020-11-21","food","bread",60
+"2020-11-22","food","another cheese",300
+"2020-11-22","food","carrots",50
+"2020-11-22","junk","white chocolate",100
+"2020-11-22","food","butter",150
+"2020-11-22","junk","ice cream",100
+"2020-11-23","household","floss",200
+"2020-11-23","junk","chewing gum",40
+"2020-11-23","household","paper towels",100
+"2020-11-24","junk","latte",110
+"2020-11-24","food","butter",150
+"2020-11-25","junk","white chocolate",100
+"2020-11-25","food","carrots",50
+"2020-11-26","household","soap",70
+"2020-11-26","junk","bepis",60
+"2020-11-26","food","chicken",300
+"2020-11-27","food","lemons",80
+"2020-11-27","junk","chewing gum",40
+"2020-11-28","food","cucumbers",80
+"2020-11-28","health","meds",1000
+"2020-11-28","junk","yet another ice cream",60
+"2020-11-29","household","toilet paper",150
+"2020-11-29","junk","chips",100
+"2020-11-29","food","peppers",80
+"2020-11-30","household","wipes",100
+"2020-11-30","junk","cookies",80
+"2020-12-01","bills","rent",40000
+"2020-12-01","bills","electricity",800
+"2020-12-01","bills","water",1500
+"2020-12-01","bills","internet",500
+"2020-12-01","bills","mobile",1000
+"2020-12-01","bills","metro",1500
+"2020-12-01","bills","bus",2200
+"2020-12-01","food","another cheese",300
+"2020-12-01","food","oranges",80
+"2020-12-01","food","oats",60
+"2020-12-02","food","rice",80
+"2020-12-02","food","oats",60
+"2020-12-02","junk","americano",90
+"2020-12-02","food","nuts",300
+"2020-12-02","food","nuts",300
+"2020-12-03","household","washing powder",200
+"2020-12-03","household","dish sponges",50
+"2020-12-03","food","eggs",100
+"2020-12-04","clothing","pants",2000
+"2020-12-04","junk","latte",110
+"2020-12-04","health","medical tests",1000
+"2020-12-04","junk","takeaway coffee",110
+"2020-12-04","food","another cheese",300
+"2020-12-05","junk","takeaway coffee",110
+"2020-12-05","food","cream cheese",100
+"2020-12-05","food","beans",120
+"2020-12-05","junk","coffee",110
+"2020-12-05","food","cheese",300
+"2020-12-06","food","cheese",300
+"2020-12-06","food","apples",80
+"2020-12-07","food","cheese",300
+"2020-12-07","household","toothbrushes",200
+"2020-12-07","household","paper towels",100
+"2020-12-07","junk","chocolate",120
+"2020-12-08","food","buckwheat",80
+"2020-12-08","junk","americano",90
+"2020-12-08","household","shampoo",200
+"2020-12-09","food","potatoes",60
+"2020-12-09","junk","latte",110
+"2020-12-09","household","razors",150
+"2020-12-10","food","tea",200
+"2020-12-10","clothing","shoes",4000
+"2020-12-10","household","toothpaste",200
+"2020-12-11","food","butter",150
+"2020-12-11","food","oats",60
+"2020-12-11","household","washing liquid",200
+"2020-12-11","junk","chips",100
+"2020-12-12","food","chicken",300
+"2020-12-12","household","toothpaste",200
+"2020-12-13","household","dish sponges",50
+"2020-12-13","food","eggs",100
+"2020-12-14","food","tea",200
+"2020-12-14","junk","cake",100
+"2020-12-15","food","chicken",300
+"2020-12-15","food","butter",150
+"2020-12-15","household","soap",70
+"2020-12-15","junk","chocolate",120
+"2020-12-15","food","eggs",100
+"2020-12-16","household","toothpaste",200
+"2020-12-16","food","rice",80
+"2020-12-16","food","tea",200
+"2020-12-16","food","bananas",80
+"2020-12-17","junk","coffee",110
+"2020-12-17","food","milk",60
+"2020-12-18","junk","chewing gum",40
+"2020-12-18","household","dish wash gel",100
+"2020-12-19","household","dish sponges",50
+"2020-12-19","food","oats",60
+"2020-12-20","food","peppers",80
+"2020-12-20","junk","chips",100
+"2020-12-21","food","rice",80
+"2020-12-21","food","tea",200
+"2020-12-22","food","rice",80
+"2020-12-22","food","olive oil",350
+"2020-12-23","food","cream cheese",100
+"2020-12-23","junk","another ice cream",80
+"2020-12-23","food","nuts",300
+"2020-12-24","household","paper towels",100
+"2020-12-24","food","bananas",80
+"2020-12-24","junk","coffee",110
+"2020-12-25","food","oats",60
+"2020-12-25","junk","cake",100
+"2020-12-25","food","carrots",50
+"2020-12-25","food","nuts",300
+"2020-12-26","food","chicken",300
+"2020-12-26","food","cucumbers",80
+"2020-12-27","clothing","pants",2000
+"2020-12-27","food","tomatoes",80
+"2020-12-27","household","washing liquid",200
+"2020-12-27","household","toilet paper",150
+"2020-12-27","food","bread",60
+"2020-12-28","food","another cheese",300
+"2020-12-28","clothing","tee",2000
+"2020-12-28","food","apples",80
+"2020-12-28","junk","dark chocolate",120
+"2020-12-28","food","beans",120
+"2020-12-29","junk","latte",110
+"2020-12-29","household","soap",70
+"2020-12-30","food","cheese",300
+"2020-12-30","food","yogurt",50
+"2020-12-30","food","carrots",50
+"2020-12-30","junk","coffee",110
+"2020-12-30","junk","bepis",60
+"2020-12-30","household","toothpaste",200
+"2020-12-31","junk","white chocolate",100
+"2020-12-31","household","shampoo",200
+"2020-12-31","junk","chocolate",120
+"2020-12-31","food","potatoes",60
