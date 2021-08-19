@@ -26,7 +26,8 @@ Saving all the comics locally, sync for now.
 
 ### Externals APIs
 
-*approaching*
+- [FoodData API](external_apis/fooddata_central)
+API wrapper for FoodData Central — a food data system.
 
 ### Data Analysis
 

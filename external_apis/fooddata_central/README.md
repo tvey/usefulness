@@ -10,9 +10,13 @@ We'll be using only GET requests to the available endpoints.
 
 For access, anyone should [obtain an API key](https://fdc.nal.usda.gov/api-guide.html) and use it with every request.
 
-Use importing a `FoodData` class from `fooddata.py` module or as a command line tool.
+Peek into the API [docs](https://fdc.nal.usda.gov/api-spec/fdc_api.html) for more clarity.
 
-## Example of usage as a command line tool
+## Wrapper use
+
+Use this **Python** wrapper importing a `FoodData` class from a `fooddata.py` module or as a command line tool.
+
+### Example of usage as a command line tool
 
 ```bash
 python fooddata.py apple
@@ -46,7 +50,7 @@ optional arguments:
 
 ```
 
-## Example of usage the FoodData class directly
+### Example of usage the FoodData class directly
 
 ```python
 from fooddata import FoodData
