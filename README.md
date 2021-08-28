@@ -36,4 +36,5 @@ Use-case of getting insights from a mock csv sample of expenses.
 
 ### Notifications
 
-*pending*
+- [Pusher](notifications/pusher)
+API wrapper for the [Pushover](https://pushover.net/) notification service.
