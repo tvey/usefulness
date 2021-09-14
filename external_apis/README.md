@@ -15,7 +15,17 @@ For services that require authentication, keys are obtained and stored as enviro
 
 ## Index
 
+* [YouTube Data API](#youtube-data-api)
+
 * [FoodData Central](#fooddata-central)
+
+## YouTube Data API
+
+**Code and info:** [youtube_data_api](youtube_data_api)
+
+**Resources:** [Various types](https://developers.google.com/youtube/v3/getting-started#resources) of data entities from YouTube
+
+**Auth:** API key (for retrieve operations only)
 
 ## FoodData Central
 
