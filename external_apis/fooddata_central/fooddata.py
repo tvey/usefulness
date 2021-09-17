@@ -1,20 +1,3 @@
-"""
-FoodData Central is a system that provides food and nutrient data.
-Its API provides REST access to this data.
-
-The API provides two endpoints:
-- the Food Search endpoint,
-- the Food Details endpoint.
-
-We'll be using only GET requests to the available endpoints.
-
-For access anyone should obtain an API key and use it with every request.
-https://fdc.nal.usda.gov/api-guide.html
-
-Docs:
-https://fdc.nal.usda.gov/api-spec/fdc_api.html
-"""
-
 import os
 import json
 import time
@@ -23,28 +6,35 @@ import argparse
 import requests
 
 
+class APIException(Exception):
+    pass
+
+
 class FoodData:
     """Wrapper for a FoodData Central API."""
 
     def __init__(self, api_key):
+        self.api_key = api_key
         self.base_url = 'https://api.nal.usda.gov/fdc/v1'
         self.data_type_param = 'dataType=Foundation,Survey (FNDDS)'
         self.page_size_param = 'pageSize=100'
-        self.api_key_param = f'api_key={api_key}'
+        self.api_key_param = f'api_key={self.api_key}'
 
-    @classmethod
-    def init(cls, api_key):
-        """Create a new instance only if an API key is valid."""
-        url = f'https://api.nal.usda.gov/fdc/v1/json-spec?api_key={api_key}'
+    @property
+    def api_key(self):
+        return self._api_key
+
+    @api_key.setter
+    def api_key(self, value):
+        url = f'https://api.nal.usda.gov/fdc/v1/json-spec?api_key={value}'
         r = requests.get(url)
-        response_code = r.status_code
 
-        if response_code in range(400, 500):
-            print('Please use a valid API key')
-            return None
-        return cls(api_key)
+        if r.status_code == 400 or r.status_code == 403:
+            raise APIException(r.json()['error']['message'])
+        else:
+            self._api_key = value
 
-    def write_data(self, data, filename) -> None:
+    def _write_data(self, data, filename) -> None:
         """Write data to a json file. Filename param - without extension."""
         os.makedirs('data', exist_ok=True)
         filename = filename.replace(' ', '_')
@@ -61,9 +51,7 @@ class FoodData:
             self.page_size_param,
             f'query={query}',
         ]
-        url = f"{self.base_url}/search?{'&'.join(params)}"
-
-        r = requests.get(url)
+        r = requests.get(f"{self.base_url}/search?{'&'.join(params)}")
 
         foods = r.json().get('foods')
 
@@ -94,7 +82,7 @@ class FoodData:
         # result.sort(key=lambda x: x['id'])
 
         if write:
-            write_data(result, query)
+            self._write_data(result, query)
 
         return result
 
@@ -110,49 +98,47 @@ class FoodData:
 
         if write:
             result_to_write = [{'id': i[0], 'name': i[1]} for i in result]
-            write_data(result_to_write, f'{query}_ids')
+            self._write_data(result_to_write, f'{query}_ids')
 
         return result
 
-    def get_details(self, food_id, write=False) -> dict:
-        """Fetch from FDC data for a particular food based on its id."""
-        url = f'{self.base_url}/food/{food_id}?{self.api_key_param}'
+    def foods(self, food_ids, write=False) -> list:
+        """Fetch from FDC data for a particular foods based on their ids."""
+        if isinstance(food_ids, (list, tuple)):
+            ids = ','.join([str(i) for i in list(food_ids)])
+        elif isinstance(food_ids, (str, int)):
+            ids = str(food_ids)
+        else:
+            raise TypeError('Pass valid ids as a list, str or int.')
 
+        url = f'{self.base_url}/foods/?fdcIds={ids}&{self.api_key_param}'
         r = requests.get(url)
 
         if r.status_code != 200:
-            print(f'Cannot fetch details for “{food_id}”')
-            return {}
+            raise APIException(r.json().get('message'))
 
         food_data = r.json()
 
-        result = {
-            'id': food_id,
-            'name': food_data['description'],
-        }
+        result = []
 
-        if food_data.get('wweiaFoodCategory'):
-            desc = 'wweiaFoodCategoryDescription'
-            result['category'] = food_data['wweiaFoodCategory'].get(desc)
-        elif food_data.get('foodCategory'):
-            result['category'] = food_data['foodCategory']
-        else:
-            result['category'] = None
+        for item in food_data:
+            item_data = {'id': item['fdcId'], 'name': item['description']}
 
-        nutrients = {}
+            nutrients = {}
 
-        if food_data.get('foodNutrients'):
-            for n in food_data['foodNutrients']:
-                if n.get('amount'):
-                    n_name = n['nutrient']['name']
-                    n_unit = n['nutrient']['unitName'].lower()
-                    n_amount = n['amount']
-                    n_value = f'{n_amount:.2f} {n_unit}'
-                    nutrients[n_name] = n_value
-        result['nutrients'] = nutrients
+            if item.get('foodNutrients'):
+                for n in item['foodNutrients']:
+                    if n.get('amount'):
+                        n_name = n['nutrient']['name']
+                        n_unit = n['nutrient']['unitName'].lower()
+                        n_amount = n['amount']
+                        n_value = f'{n_amount:.2f} {n_unit}'
+                        nutrients[n_name] = n_value
+                item_data['nutrients'] = nutrients
+            result.append(item_data)
 
         if write:
-            write_data(result, str(food_id))
+            self._write_data(result, ids)
 
         return result
 
@@ -186,15 +172,15 @@ if __name__ == '__main__':
     )
     args = parser.parse_args()
 
-    fd = FoodData.init(args.api_key)
+    fd = FoodData(args.api_key)
 
     if fd:
         query = args.query
         write = args.write
 
-        if query.isdigit():
-            fd.get_details(query, write=write)
+        if not query.isdigit():
+            fd.search(query, write=write)
         elif args.get_ids:
             fd.get_ids(query, write=write)
         else:
-            fd.search(query, write=write)
+            fd.foods(query, write=write)
