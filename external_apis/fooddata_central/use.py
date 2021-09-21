@@ -13,4 +13,7 @@ apple_result = fd.search('apple')
 apple_ids = fd.get_ids('orange', write=True)
 
 # detail endpoint
-detail = fd.foods(1097926, write=True)
+detail = fd.get_foods(1097926, write=True)
+
+# more than one item
+result = fd.get_foods(['1105314', '1750349'])

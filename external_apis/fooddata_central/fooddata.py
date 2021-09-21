@@ -16,9 +16,8 @@ class FoodData:
     def __init__(self, api_key):
         self.api_key = api_key
         self.base_url = 'https://api.nal.usda.gov/fdc/v1'
-        self.data_type_param = 'dataType=Foundation,Survey (FNDDS)'
-        self.page_size_param = 'pageSize=100'
-        self.api_key_param = f'api_key={self.api_key}'
+        self.data_type = 'Foundation,Survey (FNDDS),SR Legacy'
+        self.page_size = 100
 
     @property
     def api_key(self):
@@ -45,25 +44,31 @@ class FoodData:
 
     def search(self, query, nutrients=True, write=False) -> list:
         """Return formatted results of a search response based on a query."""
-        params = [
-            self.api_key_param,
-            self.data_type_param,
-            self.page_size_param,
-            f'query={query}',
-        ]
-        r = requests.get(f"{self.base_url}/search?{'&'.join(params)}")
+        if not str(query).strip():
+            raise ValueError('Query cannot be empty.')
+
+        params = {
+            'api_key': self.api_key,
+            'pageSize': self.page_size,
+            'dataType': self.data_type,
+            'query': query,
+        }
+
+        r = requests.get(f'{self.base_url}/search', params=params)
+
+        if r.status_code != 200:
+            print(r.json())
+            raise APIException(r.json()['error'])
 
         foods = r.json().get('foods')
-
-        if r.status_code != 200 or not foods:
-            print('Nothing found')
+        if not foods:
             return []
 
         result = []
         print(f'Getting results for “{query}”...')
         time.sleep(1)
 
-        for food in r.json()['foods']:
+        for food in foods:
             elem = {
                 'id': food['fdcId'],
                 'name': food['description'],
@@ -77,9 +82,8 @@ class FoodData:
                     n_value = f"{n['value']} {n['unitName'].lower()}"
                     food_nutrients[n_name] = n_value
                 elem['nutrients'] = food_nutrients
-            result.append(elem)
 
-        # result.sort(key=lambda x: x['id'])
+            result.append(elem)
 
         if write:
             self._write_data(result, query)
@@ -89,7 +93,7 @@ class FoodData:
     def get_ids(self, query, write=False) -> list:
         """Search but return a list of tuples (food_id, food_name)"""
 
-        foods = self.search(query)
+        foods = self.search(query, nutrients=False)
 
         if not foods:
             return []
@@ -102,16 +106,18 @@ class FoodData:
 
         return result
 
-    def foods(self, food_ids, write=False) -> list:
+    def get_foods(self, food_ids, write=False) -> list:
         """Fetch from FDC data for a particular foods based on their ids."""
-        if isinstance(food_ids, (list, tuple)):
-            ids = ','.join([str(i) for i in list(food_ids)])
-        elif isinstance(food_ids, (str, int)):
+        if isinstance(food_ids, int):
             ids = str(food_ids)
+        elif isinstance(food_ids, (list, tuple, str)):
+            if not all([str(i).isdigit() for i in food_ids]):
+                raise TypeError('Food ids must be numbers.')
+            ids = ','.join([str(i) for i in list(food_ids)])
         else:
-            raise TypeError('Pass valid ids as a list, str or int.')
+            raise TypeError('Pass food ids as numbers or a list of numbers.')
 
-        url = f'{self.base_url}/foods/?fdcIds={ids}&{self.api_key_param}'
+        url = f'{self.base_url}/foods/?fdcIds={ids}&api_key={self.api_key}'
         r = requests.get(url)
 
         if r.status_code != 200:
@@ -149,11 +155,11 @@ if __name__ == '__main__':
         usage='%(prog)s api_key query --get_ids --write',
         description=('Get food data from FoodData Cental API.'),
     )
-    parser.add_argument('query', help='Either a search string or a food id.')
     parser.add_argument(
         'api_key',
         help='Valid API key, get it signing up on https://fdc.nal.usda.gov/',
     )
+    parser.add_argument('query', help='Either a search string or a food id.')
     parser.add_argument(
         '-ids',
         '--get-ids',
@@ -168,7 +174,7 @@ if __name__ == '__main__':
         help='Write results to a file locally.',
         nargs='?',
         const=True,
-        default=False,
+        default=True,
     )
     args = parser.parse_args()
 
@@ -183,4 +189,6 @@ if __name__ == '__main__':
         elif args.get_ids:
             fd.get_ids(query, write=write)
         else:
-            fd.foods(query, write=write)
+            fd.get_foods(query, write=write)
+    else:
+        print('Cannot initiate FoodData.')

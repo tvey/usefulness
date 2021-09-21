@@ -55,11 +55,7 @@ optional arguments:
 ```python
 from fooddata import FoodData
 
-fd = FoodData.init(api_key='Your valid FDC API key')
+fd = FoodData(api_key='Your valid FDC API key')
 
 result = fd.search('ice cream', write=True)
 ```
-
-## To-do
-
-- [ ] Test the functionality
