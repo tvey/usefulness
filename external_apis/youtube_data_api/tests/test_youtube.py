@@ -1,6 +1,8 @@
+import random
+
 import pytest
 
-from ..youtube import YouTube
+from ..youtube import YouTube, APIException
 
 
 def test_instance_init_with_valid_key(valid_key):
@@ -17,12 +19,29 @@ def test_existing_attributes(yt):
     assert hasattr(yt, 'params')
     assert hasattr(yt, '_get_response')
     assert hasattr(yt, 'search')
+    assert hasattr(yt, 'videos')
+    assert hasattr(yt, 'playlists')
+    assert hasattr(yt, 'playlist_items')
+    assert not hasattr(yt, 'channels')
 
 
 @pytest.mark.calling
-def test_search(valid_key):
-    yt = YouTube(valid_key)
+def test_request_reponse_items(yt):
+    pass
+
+
+@pytest.mark.calling
+def test_search_returns_expected_result(yt):
     result = yt.search('doge')
 
-    assert result['kind'] == 'youtube#searchListResponse'
-    assert result['items']
+    assert result
+    assert len(result) == 50  # max page size, default in the class
+    assert random.choice(result).get('kind') == 'youtube#searchResult'
+
+
+@pytest.mark.calling
+def test_search_returns_no_result(yt):
+    result = yt.search('mwqwourfyv')
+
+    assert result == []
+

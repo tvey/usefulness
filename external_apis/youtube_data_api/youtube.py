@@ -64,6 +64,7 @@ class YouTube:
         """
         resource = 'videos'
         params = self.params | {'id': video_ids}
+        params['part'].append('statistics')
         return self._get_response(resource, params)
 
     def playlists(self, playlist_ids=None, channel_id=None):
@@ -80,7 +81,7 @@ class YouTube:
         resource = 'playlists'
 
         if playlist_ids and channel_id:
-            msg = 'Incompatible parameters. Use playlist_ids or channel_id.'
+            msg = 'Incompatible parameters. Use playlist_ids *or* channel_id.'
             raise APIException(msg)
         elif not playlist_ids and not channel_id:
             raise ValueError('Pass either playlist_ids or channel_id.')
@@ -88,22 +89,25 @@ class YouTube:
             raise ValueError('Pass only one channel_id as a string.')
 
         params = self.params
+        params['part'].append('contentDetails')
 
         if playlist_ids:
             params = params | {'id': playlist_ids}
-            pass
         elif channel_id:
             params = params | {'channelId': channel_id}
 
         return self._get_response(resource, params)
 
     def playlist_items(self, playlist_id):
-        """"""
+        """Get items of a passed playlist.
+
+        Quota cost — 1 unit.
+        """
         resource = 'playlistItems'
         params = self.params | {'playlistId': playlist_id}
         return self._get_response(resource, params)
 
-    def _get_response(self, resource, params, loop=False) -> list:
+    def _get_response(self, resource, params, loop=True) -> list:
         """Send a request and return a valid response or an empty list.
 
         Extract and return 'items' of the API responses without metadata.
@@ -124,10 +128,20 @@ class YouTube:
             raise APIException(r.json().get('error').get('message'))
 
         result = r.json().get('items', [])
+        next_page_token = r.json().get('nextPageToken')
 
-        if not loop or not r.json().get('nextPageToken'):
+        if not loop or not next_page_token:
             return result
-        elif r.json().get('nextPageToken'):
+        elif next_page_token:
+            while True:
+                params['pageToken'] = next_page_token
+                r = requests.get(url, params=params)
+                items = r.json().get('items', [])
+
+                next_page_token = r.json().get('nextPageToken')
+                if not next_page_token:
+                    break
+
             # if page_token in params - recurse?
             # result.extend(...)
             pass
