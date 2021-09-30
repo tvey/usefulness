@@ -29,6 +29,9 @@ Saving all the comics locally, sync for now.
 - [FoodData API](external_apis/fooddata_central)
 API wrapper for FoodData Central — a food data system.
 
+- [YouTube Data API](external_apis/youtube_data_api)
+Getting data about selected YouTube resources.
+
 ### Data Analysis
 
 - [Expenses](data_analysis/expenses)

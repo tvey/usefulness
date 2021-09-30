@@ -1,4 +1,5 @@
 import os
+import json
 import random
 import string
 
@@ -8,6 +9,11 @@ import dotenv
 from ..youtube import YouTube
 
 dotenv.load_dotenv()
+
+
+def load_ids():
+    with open('tests/ids.json') as f:
+        return json.load(f)
 
 
 @pytest.fixture
@@ -22,28 +28,40 @@ def yt(valid_key):
 
 @pytest.fixture
 def long_playlist_id():
-    return YouTube(valid_key)
+    long_playlist_ids = [
+        'PLf6Ove6NWsVdHPONgi-c_4I0LOobNDVLt',
+        'PLoaTLsTsV3hPJDj7YaE1p0k-Pp1GdWPcV',
+    ]
+    return random.choice(long_playlist_ids)
 
 
 @pytest.fixture
-def playlist_id():
-    return YouTube(valid_key)
+def playlist_ids():
+    def _playlist_ids(num):
+        playlist_ids = load_ids().get('playlists')
+        return random.sample(playlist_ids, k=num)
+
+    return _playlist_ids
 
 
 @pytest.fixture
-def video_id():
-    pass
+def video_ids():
+    def _video_ids(num):
+        video_ids = load_ids().get('videos')
+        return random.sample(video_ids, k=num)
+
+    return _video_ids
 
 
 @pytest.fixture
-def video_list():
-    pass
- 
+def channel_id():
+    channel_ids = load_ids().get('channels')
+    return random.choice(channel_ids)
+
 
 @pytest.fixture
 def random_string():
-    chars = list(string.printable)
-    random_chars = random.choices(string.printable, k=random.randint(1, 50))
-    random_letters = random.choices(chars, k=random.randint(1, 50))
-    return ''.join(random_chars)
-
+    letters = string.ascii_letters
+    random_chars = random.choices(string.printable, k=random.randint(1, 30))
+    random_letters = random.choices(letters, k=random.randint(1, 30))
+    return ''.join(random.choice([random_chars, random_letters]))

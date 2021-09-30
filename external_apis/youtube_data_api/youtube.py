@@ -1,4 +1,6 @@
+import re
 import json
+import copy
 
 import requests
 
@@ -49,13 +51,16 @@ class YouTube:
     def search(self, query):
         """Get info about resources matching a query from the search endpoint.
 
-        Match videos, channels, and playlists. Ordered by relevance.
+        Match videos, channels, and playlists, ordered by relevance.
         Retrieve first 50 search results.
         Quota cost — 100 units.
         """
         resource = 'search'
-        search_params = self.params | {'q': query, 'regionCode': self.region}
-        return self._get_response(resource, search_params)
+        search_params = copy.deepcopy(self.params) | {
+            'q': query,
+            'regionCode': self.region,
+        }
+        return self._get_response(resource, search_params, loop=False)
 
     def videos(self, video_ids):
         """Retrieve data about one or more videos.
@@ -63,7 +68,7 @@ class YouTube:
         Quota cost — 1 unit.
         """
         resource = 'videos'
-        params = self.params | {'id': video_ids}
+        params = copy.deepcopy(self.params) | {'id': video_ids}
         params['part'].append('statistics')
         return self._get_response(resource, params)
 
@@ -85,10 +90,8 @@ class YouTube:
             raise APIException(msg)
         elif not playlist_ids and not channel_id:
             raise ValueError('Pass either playlist_ids or channel_id.')
-        elif not isinstance(channel_id, str):
-            raise ValueError('Pass only one channel_id as a string.')
 
-        params = self.params
+        params = copy.deepcopy(self.params)
         params['part'].append('contentDetails')
 
         if playlist_ids:
@@ -101,19 +104,20 @@ class YouTube:
     def playlist_items(self, playlist_id):
         """Get items of a passed playlist.
 
+        Accept a valid playlist id.
         Quota cost — 1 unit.
         """
         resource = 'playlistItems'
-        params = self.params | {'playlistId': playlist_id}
+        params = copy.deepcopy(self.params) | {'playlistId': playlist_id}
         return self._get_response(resource, params)
 
     def _get_response(self, resource, params, loop=True) -> list:
         """Send a request and return a valid response or an empty list.
 
-        Extract and return 'items' of the API responses without metadata.
-        Raise in case of any API response errors.
+        Extract and return 'items' of the API responses.
+        Raise with a returned message in case of any API response errors.
 
-        Accept a resource name and its relevant params.
+        Accept a resource name and its relevant prepared params.
         Params are accepted as a dict and encoded by Requests.
         If loop is set to True, access all pages in a paged response.
         """
@@ -137,14 +141,11 @@ class YouTube:
                 params['pageToken'] = next_page_token
                 r = requests.get(url, params=params)
                 items = r.json().get('items', [])
+                result.extend(items)
 
                 next_page_token = r.json().get('nextPageToken')
                 if not next_page_token:
                     break
-
-            # if page_token in params - recurse?
-            # result.extend(...)
-            pass
 
         return result
 
