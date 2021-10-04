@@ -3,6 +3,9 @@ import json
 import copy
 
 import requests
+import requests_cache
+
+requests_cache.install_cache('youtube_cache')
 
 
 class APIException(Exception):
