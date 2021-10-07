@@ -2,7 +2,7 @@ import random
 
 import pytest
 
-from ..youtube import YouTube
+from ..youtube import APIException, YouTube
 
 
 def test_instance_init_with_valid_key(valid_key):
@@ -36,6 +36,7 @@ def test_request_response_items_list(yt, playlist_ids, video_ids, channel_id):
     assert channel_result
 
 
+@pytest.mark.skip
 def test_get_response_looping(yt, long_playlist_id):
     result = yt.playlist_items(long_playlist_id)
 
@@ -65,8 +66,7 @@ def test_videos_multiple_ids(yt, video_ids):
     assert result[0].get('kind') == 'youtube#video'
 
 
-def test_videos_returned_fields(yt, video_ids):
-    video_id = video_ids(1)
+def test_videos_returned_fields(yt, video_id):
     result = yt.videos(video_id)
     item = result[0]
 
@@ -74,3 +74,48 @@ def test_videos_returned_fields(yt, video_ids):
     assert item.get('kind') == 'youtube#video'
     assert item.get('snippet')
     assert item.get('statistics')
+
+
+def test_playlists_without_params_raises(yt):
+    with pytest.raises(ValueError) as e:
+        yt.playlists()
+
+    assert 'either playlist_ids or channel_id' in e.value.args[0]
+
+
+def test_playlists_incompatible_params_cause_error(
+    yt, playlist_ids, channel_id
+):
+    with pytest.raises(APIException):
+        yt.playlists(playlist_ids(2), channel_id=channel_id)
+
+
+def test_playlists_with_playlists_param(yt, playlist_ids):
+    pl_id = playlist_ids(1)[0]
+    pl_ids = playlist_ids(random.randint(2, 10))
+    result1 = yt.playlists(pl_id)
+    result2 = yt.playlists(pl_ids)
+
+    assert result1
+    assert result2
+    assert len(result1) == 1
+    assert len(result2) > 1
+    assert result1[0]['kind'] == 'youtube#playlist'
+
+
+def test_playlists_with_channel_param(yt, channel_id):
+    result = yt.playlists(channel_id=channel_id)
+    assert result
+    assert result[0]['kind'] == 'youtube#playlist'
+
+
+def test_playlist_items_with_valid_playlist_id(yt, playlist_ids):
+    playlist_id = playlist_ids(1)[0]
+    result = yt.playlist_items(playlist_id)
+    assert result
+    assert result[0]['kind'] == 'youtube#playlistItem'
+
+
+def test_playlist_items_with_invalid_playlist_id_raises(yt):
+    with pytest.raises(APIException):
+        yt.playlist_items('abc123')

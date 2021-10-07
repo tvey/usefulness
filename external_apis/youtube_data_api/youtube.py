@@ -105,7 +105,7 @@ class YouTube:
         return self._get_response(resource, params)
 
     def playlist_items(self, playlist_id):
-        """Get items of a passed playlist.
+        """Get all items of a passed playlist.
 
         Accept a valid playlist id.
         Quota cost — 1 unit.
@@ -151,6 +151,56 @@ class YouTube:
                     break
 
         return result
+
+    def _get_id(self, value):
+        """Retrieve/verify an id of a video/playlist.
+
+        Accept either straight ids or links in any form.
+        Return result in a form (type, id) — ('video', '6U9HYTyTlVw').
+
+        Video id format: A-Za-z0-9_-, 11 chars.
+        Playlist id format: A-Za-z0-9_-, (mostly) 34 chars, starts with PL.
+        Ids are case-sensitive.
+
+        There is possibility of both video id and playlist id present in a URL.
+        Return video id in this case for now.
+        """
+        if not isinstance(value, str):
+            raise TypeError('Link or id must be of a type str.')
+
+        video_pattern = (
+            r'((?<=(v|V)/)|(?<=be/)|(?<=(\?|\&)v=)|(?<=embed/))([\w-]+)'
+        )
+        playlist_pattern = r'PL[\w-]{12,34}'
+
+        match = re.search(video_pattern, value)
+
+        if match:
+            return ('video', match.group())
+
+        match = re.search(playlist_pattern, value)
+
+        if match:
+            return ('playlist', match.group())
+        return ''
+
+    def _get_channel_id(self, channel_url):
+        """Retrieve a channel id based of a valid channel URL.
+
+        A reliable way to get a channel id is to extract it from a page source.
+        """
+        if re.search(r'youtube\.[A-Za-z]{2,4}(\.[A-Za-z]{2,4})?', channel_url):
+            raise ValueError('Valid channel URL is required.')
+
+        url = requests.utils.prepend_scheme_if_needed(channel_url, 'http')
+        r = requests.get(url)
+
+        if r.status_code == 200:
+            pattern = r'<meta itemprop="channelId" content="([\w-]{24})">'
+            match = re.search(pattern, r.text)
+            if match:
+                return match.group()
+        return ''
 
     def _write(self, data, filename):
         """Dump result to a file.

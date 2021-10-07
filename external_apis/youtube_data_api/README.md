@@ -16,12 +16,12 @@ Most of the resources support common methods:
 * **`update`** (PUT)
 * **`delete`** (DELETE)
 
-Only `list` (GET) operation are present in YouTube class.
+Only `list` (GET) operation are present in the YouTube class.
 
 All the `GET` calls require an [API key](https://developers.google.com/youtube/v3/getting-started).
 
 ## Todo
 
-- [] Test better
+- [ ] Test better
 
-- [] Handle [errors](https://developers.google.com/youtube/v3/docs/errors) better
+- [ ] Handle [errors](https://developers.google.com/youtube/v3/docs/errors) better
