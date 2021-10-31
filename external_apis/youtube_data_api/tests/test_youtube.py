@@ -27,16 +27,17 @@ def test_existing_attributes(yt):
 
 def test_request_response_items_list(yt, playlist_ids, video_ids, channel_id):
     random_num = random.randint(1, 20)
-    video_result = yt.videos(video_ids(random_num))
-    playlist_result = yt.playlists(playlist_ids(random_num))
     channel_result = yt.playlists(channel_id=channel_id)
+    videos = video_ids(random_num)
+    video_result = yt.videos(videos)
+    playlists = playlist_ids(random_num)
+    playlist_result = yt.playlists(playlists)
 
+    assert channel_result
     assert len(playlist_result) == random_num
     assert len(video_result) == random_num
-    assert channel_result
 
 
-@pytest.mark.skip
 def test_get_response_looping(yt, long_playlist_id):
     result = yt.playlist_items(long_playlist_id)
 
@@ -59,10 +60,11 @@ def test_search_returns_empty_result(yt):
 
 
 def test_videos_multiple_ids(yt, video_ids):
-    ids = video_ids(random.randint(2, 10))
+    num = random.randint(2, 10)
+    ids = video_ids(num)
     result = yt.videos(ids)
 
-    assert len(result) == len(ids)
+    assert len(result) == len(ids) == num
     assert result[0].get('kind') == 'youtube#video'
 
 
@@ -119,3 +121,16 @@ def test_playlist_items_with_valid_playlist_id(yt, playlist_ids):
 def test_playlist_items_with_invalid_playlist_id_raises(yt):
     with pytest.raises(APIException):
         yt.playlist_items('abc123')
+
+
+def test_get_id_video(yt, video_id):
+    values = [
+        f'https://www.youtube.com/watch?v={video_id}',
+        f'https://www.youtube.com/v/{video_id}',
+        f'https://www.youtube.com/watch?v={video_id}',
+        f'https://www.youtube.com/embed/{video_id}',
+        f'https://youtu.be/{video_id}',
+    ]
+
+    for value in values:
+        assert yt._get_id(value)

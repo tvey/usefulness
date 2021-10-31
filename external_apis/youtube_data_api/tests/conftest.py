@@ -54,6 +54,12 @@ def video_ids():
 
 
 @pytest.fixture
+def video_id():
+    video_ids = load_ids().get('videos')
+    return random.choice(video_ids)
+
+
+@pytest.fixture
 def channel_id():
     channel_ids = load_ids().get('channels')
     return random.choice(channel_ids)

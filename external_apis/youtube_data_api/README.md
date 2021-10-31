@@ -24,4 +24,6 @@ All the `GET` calls require an [API key](https://developers.google.com/youtube/v
 
 - [ ] Test better
 
+The API sometimes doesn't return results for specific videos based on their ids or playlists for specific channels. Hmm...
+
 - [ ] Handle [errors](https://developers.google.com/youtube/v3/docs/errors) better
