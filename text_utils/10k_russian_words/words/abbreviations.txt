@@ -1,0 +1,36 @@
+a - accusative case
+adj - adjective
+biol - biological
+coll - colloquial (informal usage)
+d - dative case
+det - determinate
+dim - diminutive
+econ - economics
+f - feminine gender
+g - genitive case
+geog - geographical
+hist - historical
+i - imperfective aspect
+inst - instrumental case
+i/p - both imperfective and perfective aspects
+indecl - indeclinable
+indet - indeterminate
+inf - infinitive
+intrans - intransitive
+m - masculine gender
+n - neuter gender
+nom - nominative case
+obs - obsolete
+os - oneself
+p - perfective aspect
+past - past tense
+pers - person
+pl - plural
+poss - possessive
+pr - prepositional (or locative) case
+pres - present tense
+s.o. - someone
+sg - singular
+sth - something
+swh - somewhere
+tech - technical
