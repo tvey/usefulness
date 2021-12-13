@@ -1,4 +1,5 @@
 Lists of 10k and 1k and 100 most frequent Russian words, alphabetically ordered.
+In addition, a list of all words ordered by frequency is present.
 
 Список русских слов, основанный на Частотном словаре современного русского языка.
 Кодировка UTF-8.
