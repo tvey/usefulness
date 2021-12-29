@@ -1,0 +1,17 @@
+Русские слова с ударениями.
+
+Список слов основан на Частотном словаре современного русского языка (http://dict.ruslang.ru/freq.php).
+Ударения собраны из Викисловаря (https://ru.wiktionary.org/).
+
+Некоторые слова из списка являются сложными, другие имеют двойное ударение.
+Ударные буквы и их индексы в обоих случаях представлены одинаково — разделены пробелом.
+Упрощённая версия списка исключает все эти слова.
+
+
+The list of Russian words with stressed vowels (marked by an acute symbol).
+It's based on http://dict.ruslang.ru/freq.php, Russian version of Wiktionary and huh... some manual tweaking.
+
+A few words in the list are compound, some other words have double stress.
+Stressed letters (and indexes) in this words are presented in the same way — space-separated.
+
+See example.py for some ideas of using the lists.
