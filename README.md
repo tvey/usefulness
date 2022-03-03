@@ -8,6 +8,7 @@ Code snippets and small tools in Python that proved useful in various situations
 
 * [Data Analysis](#data-analysis)
 * [Externals APIs](#external-apis)
+* [Image Tools](#image-tools)
 * [Notifications](#notifications)
 * [OS Tools](#os-tools)
 * [Scraping](#scraping)
@@ -25,6 +26,11 @@ API wrapper for FoodData Central — a food data system.
 
 - [YouTube Data API](external_apis/youtube_data_api)
 Getting data about selected YouTube resources.
+
+### Image Tools
+
+- [Format converter](image_tools/format_converter)
+Script to convert images from one format to another.
 
 ### Notifications
 
