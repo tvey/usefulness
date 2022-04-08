@@ -2,9 +2,11 @@ from folder import Folder
 
 my_folder = Folder('path/to/my/folder')
 
+print(f'Size: {my_folder.size}')
+
 duration = my_folder.duration
 duration_seconds = my_folder.get_duration()
-print(f'Total duration of “{my_folder.path.rsplit("/")[-1]}”: {duration}')
+print(f'Total duration: {duration}')
 print(f'In seconds: {duration_seconds:.0f}')
 
 

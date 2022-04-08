@@ -2,47 +2,70 @@
 For now...
 """
 
-import os
 import datetime
+import os
+from typing import Union
 
+import humanize
 from tinytag import TinyTag
 
 
 class Folder:
     supported_formats = ('mp4', 'mp3', 'flac')
 
-    def __init__(self, path):
+    def __init__(self, path: str):
         self.path = path
 
     def __repr__(self):
         return f'Folder({self.path})'
 
     @property
-    def subfolders(self):
+    def subfolders(self) -> list[str]:
         """Immediate children folders."""
         return [i.path for i in os.scandir(self.path) if i.is_dir()]
 
     @property
-    def files(self):
-        """List full paths of selected files."""
+    def files(self) -> list[str]:
+        """List of full paths to files in folder and subfolders."""
         file_paths = []
         for root, subs, files in os.walk(self.path):
             for file in files:
-                if file.endswith(self.supported_formats):
-                    file_path = os.path.join(os.path.abspath(root), file)
+                file_path = os.path.join(os.path.abspath(root), file)
+                if not os.path.islink(file_path):
                     file_paths.append(file_path)
         return file_paths
 
-    def get_duration(self, human=False):
-        """Get total duration of files, human-readable or timedelta."""
+    @property
+    def media_files(self) -> list[str]:
+        """List of full paths of selected files."""
+        return [i for i in self.files if i.endswith(self.supported_formats)]
+
+    def get_size(self, human=False) -> Union[int, str]:
+        """Get total size, bytes or human-readable."""
+        total_size = 0
+
+        for file_path in self.files:
+            total_size += os.path.getsize(file_path)
+
+        if human:
+            return humanize.naturalsize(total_size)
+        return total_size
+
+    @property
+    def size(self) -> str:
+        """Folder size in human-readable format."""
+        return self.get_size(human=True)
+
+    def get_duration(self, human=False) -> Union[int, str]:
+        """Get total duration, seconds (int) or human-readable."""
         duration = 0
-        for file in self.files:
+        for file in self.media_files:
             duration += TinyTag.get(file).duration
         if human:
             return str(datetime.timedelta(seconds=duration)).split('.')[0]
         return duration
 
     @property
-    def duration(self):
-        """Display duration in human-readable format."""
+    def duration(self) -> str:
+        """Folder duration in human-readable format."""
         return self.get_duration(human=True)
