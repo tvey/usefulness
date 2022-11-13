@@ -5,6 +5,8 @@ name = "pypi"
 
 [packages]
 pdf2image = "*"
+pypdf2 = "*"
+tinytag = "*"
 
 [dev-packages]
 
