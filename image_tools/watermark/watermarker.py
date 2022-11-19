@@ -1,3 +1,5 @@
+import os
+import re
 from datetime import datetime
 
 from matplotlib import font_manager
@@ -5,10 +7,11 @@ from PIL import Image, ImageDraw, ImageFont
 
 
 class Watermarker:
-    def __init__(self, image_path):
+    def __init__(self, image_path, font_file=None, text_color='#fff'):
         self.image_path: str = image_path
         self.position = ''
-        self.color = ''
+        self._font_file = font_file
+        self._text_color = text_color
 
     @property
     def image(self):
@@ -16,9 +19,27 @@ class Watermarker:
 
     @property
     def font(self):
-        font = font_manager.FontProperties(family='sans-serif', weight='bold')
-        font_file = font_manager.findfont(font)
+        if self._font_file and not os.path.exists(self._font_file):
+            raise FileNotFoundError(
+                f'Full path to font required. {self._font_file} does not exist'
+            )
+        elif self._font_file and os.path.exists(self._font_file):
+            font_file = self._font_file
+        else:
+            font = font_manager.FontProperties(
+                family='sans-serif', weight='normal'
+            )
+            font_file = font_manager.findfont(font)
         return ImageFont.truetype(font_file, 100)
+
+    @property
+    def text_color(self):
+        match = re.search(r'^#(?:[0-9a-fA-F]{3}){1,2}$', self._text_color)
+        if not match:
+            raise ValueError(
+                f'{self._text_color} is not a valid hex value for text_color'
+            )
+        return self._text_color
 
     def get_image_timestamp(self, fmt: str):
         exif = self.image.getexif()
@@ -36,7 +57,7 @@ class Watermarker:
         d.text(
             (width / 1.4, height / 1.1),
             timestamp,
-            (0, 0, 0),
+            self.text_color,
             font=self.font,
         )
         image.show()
