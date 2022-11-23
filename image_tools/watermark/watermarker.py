@@ -1,5 +1,4 @@
 import os
-import textwrap
 from datetime import datetime
 from typing import Union
 
@@ -53,6 +52,7 @@ class Watermarker:
 
     def _get_color(self, color, alpha) -> tuple:
         converted = colors.to_rgba(color, alpha=alpha)
+        print('Get color', tuple(round(x * 255) for x in converted))
         return tuple(round(x * 255) for x in converted)
 
     def _get_text_size(self, text, font_size):
@@ -66,7 +66,7 @@ class Watermarker:
         if mode == 'watermark':
             fraction = 0.5
         elif mode == 'timestamp':
-            fraction = 0.22
+            fraction = 0.2
 
         image_width = self.image.size[0]
         while self._get_text_size(text, font_size)[0] < fraction * image_width:
@@ -74,13 +74,31 @@ class Watermarker:
 
         return font_size
 
-    def _calc_position(self, text, font_size, ptype='', mode='') -> tuple:
-        # To-do
-        # Calculate based on image size and text size
-        # Support keywords: tl, tc, tr, cc, bl, bc, br
-        width, height = self.image.size
-        text_with, text_height = self._get_text_size(text, font_size)
-        return ((width - text_with) / 2, (height - text_height) / 2)
+    def _calc_position(self, text, font_size, ptype='') -> tuple:
+        image_width, image_height = self.image.size
+        text_width, text_height = self._get_text_size(text, font_size)
+        margin = (image_width + image_height) / 2 * 0.03
+        width_diff = image_width - text_width
+        height_diff = image_height - text_height
+
+        positions = {
+            'top-left': (margin, margin),
+            'top-center': ((width_diff) / 2, margin),
+            'top-right': ((width_diff) - margin, margin),
+            'center-left': (margin, (height_diff) / 2),
+            'center': ((width_diff) / 2, (height_diff) / 2),
+            'center-right': ((width_diff) - margin, (height_diff) / 2),
+            'bottom-left': (margin, (height_diff) - margin),
+            'bottom-center': ((width_diff) / 2, (height_diff) - margin),
+            'bottom-right': ((width_diff) - margin, (height_diff) - margin),
+        }
+
+        if ptype not in positions:
+            raise ValueError(f'Unknown position: {ptype}')
+
+        # Accept custom tuple position
+
+        return positions[ptype]
 
     def _get_image_timestamp(self, fmt: str):
         exif = self.image.getexif()
@@ -106,7 +124,7 @@ class Watermarker:
             font=font,
         )
         result = Image.alpha_composite(image, txt)
-        result.show()
+        result.show()  ###
         image_rgb = result.convert('RGB')
         image_rgb.save(self._get_filename(suffix))
 
@@ -117,13 +135,14 @@ class Watermarker:
         font_size: int = 0,
         text_color: Union[str, tuple] = 'white',
         text_transparency: float = 1.0,
-        position=(0, 0),
+        position='bottom-right',
     ):
         color = self._get_color(text_color, text_transparency)
         if not timestamp:
             timestamp = self._get_image_timestamp(fmt)
         if not font_size:
             font_size = self._get_font_size(timestamp, mode='timestamp')
+        position = self._calc_position(timestamp, font_size, ptype=position)
 
         self._draw_text('timestamped', position, timestamp, font_size, color)
 
@@ -133,13 +152,12 @@ class Watermarker:
         font_size: int = 0,
         text_color: Union[str, tuple] = 'white',
         text_transparency: float = 0.3,
-        position=(0, 0),
+        position='center',
     ):
         color = self._get_color(text_color, text_transparency)
         if not font_size:
             font_size = self._get_font_size(text, mode='watermark')
 
-        if position == (0, 0):
-            position = self._calc_position(text, font_size, mode='watermark')
+        position = self._calc_position(text, font_size, ptype=position)
 
         self._draw_text('watermarked', position, text, font_size, color)
