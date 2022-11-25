@@ -6,7 +6,7 @@ name = "pypi"
 [packages]
 pdf2image = "*"
 pypdf2 = "*"
-tinytag = "*"
+"pdfminer.six" = "*"
 
 [dev-packages]
 
