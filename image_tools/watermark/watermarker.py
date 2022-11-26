@@ -7,15 +7,12 @@ from PIL import Image, ImageDraw, ImageFont
 
 
 class Watermarker:
-    def __init__(
-        self,
-        image_path,
-        font_file: str = '',
-        text_color: Union[str, tuple] = '#fff',
-    ):
+    def __init__(self, image_path: str, font_file: str = ''):
         self._image_path = image_path
         self._font_file = font_file
-        self._text_color = text_color
+
+    def __repr__(self):
+        return f'Watermarker("{self._image_path}")'
 
     @property
     def image(self):
@@ -50,12 +47,11 @@ class Watermarker:
             )
             return font_manager.findfont(font)
 
-    def _get_color(self, color, alpha) -> tuple:
+    def _get_color(self, color: Union[str, tuple], alpha: float) -> tuple:
         converted = colors.to_rgba(color, alpha=alpha)
-        print('Get color', tuple(round(x * 255) for x in converted))
         return tuple(round(x * 255) for x in converted)
 
-    def _get_text_size(self, text, font_size):
+    def _get_text_size(self, text: str, font_size) -> tuple:
         font = ImageFont.truetype(self.font_file, font_size)
         return font.getsize(text)
 
@@ -64,17 +60,22 @@ class Watermarker:
         fraction = 0.2
 
         if mode == 'watermark':
-            fraction = 0.5
+            fraction = 0.6
         elif mode == 'timestamp':
             fraction = 0.2
 
-        image_width = self.image.size[0]
+        image_width = self.image.width
         while self._get_text_size(text, font_size)[0] < fraction * image_width:
             font_size += 1
 
         return font_size
 
-    def _calc_position(self, text, font_size, ptype='') -> tuple:
+    def _calc_position(
+        self,
+        text: str,
+        font_size: int,
+        pvalue: Union[str, tuple[float, float]] = (0, 0),
+    ) -> tuple:
         image_width, image_height = self.image.size
         text_width, text_height = self._get_text_size(text, font_size)
         margin = (image_width + image_height) / 2 * 0.03
@@ -93,14 +94,20 @@ class Watermarker:
             'bottom-right': ((width_diff) - margin, (height_diff) - margin),
         }
 
-        if ptype not in positions:
-            raise ValueError(f'Unknown position: {ptype}')
+        def is_num(value):
+            return isinstance(value, int) or isinstance(value, float)
 
-        # Accept custom tuple position
+        are_nums = all(is_num(v) for v in pvalue)
 
-        return positions[ptype]
+        if isinstance(pvalue, str) and pvalue in positions:
+            return positions[pvalue]
+        elif isinstance(pvalue, tuple) and len(pvalue) == 2 and are_nums:
+            return pvalue
+        else:
+            raise ValueError(f'Invalid position value: {pvalue}')
 
-    def _get_image_timestamp(self, fmt: str):
+
+    def _get_image_timestamp(self, fmt: str) -> str:
         exif = self.image.getexif()
         creation_time = exif.get(306)
         if not creation_time:
@@ -108,11 +115,18 @@ class Watermarker:
         timestamp_dt = datetime.strptime(creation_time, '%Y:%m:%d %H:%M:%S')
         return datetime.strftime(timestamp_dt, fmt)
 
-    def _get_filename(self, suffix):
+    def _get_filename(self, suffix: str) -> str:
         path, ext = os.path.splitext(self._image_path)
         return f'{path}_{suffix}{ext}'
 
-    def _draw_text(self, suffix, position, text, font_size, text_color):
+    def _draw_text(
+        self,
+        suffix: str,
+        position: tuple[float, float],
+        text: str,
+        font_size: int,
+        text_color: tuple,
+    ) -> None:
         image = self.image_rgba
         txt = Image.new('RGBA', self.image_rgba.size, (255, 255, 255, 0))
         d = ImageDraw.Draw(txt)
@@ -126,23 +140,24 @@ class Watermarker:
         result = Image.alpha_composite(image, txt)
         result.show()  ###
         image_rgb = result.convert('RGB')
-        image_rgb.save(self._get_filename(suffix))
+        image_rgb.save(self._get_filename(suffix), quality=100, subsampling=0)
 
     def add_timestamp(
         self,
-        fmt: str = '%Y/%m/%d %H:%M',
+        fmt: str = '%Y-%m-%d %H:%M',
         timestamp: str = '',
         font_size: int = 0,
         text_color: Union[str, tuple] = 'white',
         text_transparency: float = 1.0,
-        position='bottom-right',
+        position: Union[str, tuple[float, float]] = 'bottom-right',
     ):
         color = self._get_color(text_color, text_transparency)
+        print('COLOR TIMESTAMP', color)
         if not timestamp:
             timestamp = self._get_image_timestamp(fmt)
         if not font_size:
             font_size = self._get_font_size(timestamp, mode='timestamp')
-        position = self._calc_position(timestamp, font_size, ptype=position)
+        position = self._calc_position(timestamp, font_size, pvalue=position)
 
         self._draw_text('timestamped', position, timestamp, font_size, color)
 
@@ -152,12 +167,12 @@ class Watermarker:
         font_size: int = 0,
         text_color: Union[str, tuple] = 'white',
         text_transparency: float = 0.3,
-        position='center',
+        position: Union[str, tuple[float, float]] = 'center',
     ):
         color = self._get_color(text_color, text_transparency)
         if not font_size:
             font_size = self._get_font_size(text, mode='watermark')
 
-        position = self._calc_position(text, font_size, ptype=position)
+        position = self._calc_position(text, font_size, pvalue=position)
 
         self._draw_text('watermarked', position, text, font_size, color)
