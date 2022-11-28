@@ -1,4 +1,3 @@
-from logging import root
 from pikepdf import Pdf
 from PyPDF2 import PdfFileReader
 
