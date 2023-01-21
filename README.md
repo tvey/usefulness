@@ -6,53 +6,70 @@ Code snippets and small tools in Python that proved useful in various situations
 
 ## Index
 
-* [Data Analysis](#data-analysis)
-* [Externals APIs](#external-apis)
-* [Image Tools](#image-tools)
-* [Notifications](#notifications)
-* [OS Tools](#os-tools)
-* [Scraping](#scraping)
-* [Text Utils](#text-utils)
+- [Data Analysis](#data-analysis)
+- [Dates](#dates)
+- [Externals APIs](#externals-apis)
+- [Image Tools](#image-tools)
+- [Notifications](#notifications)
+- [OS Tools](#os-tools)
+- [Scraping](#scraping)
+- [Words](#words)
 
 ### Data Analysis
 
-- [Expenses](data_analysis/expenses)
+- [Expenses](data_analysis/expenses):
 Use-case of getting insights from a mock csv sample of expenses.
+
+### Dates
+
+Various operations with dates.
 
 ### Externals APIs
 
-- [FoodData API](external_apis/fooddata_central)
+- [FoodData API](external_apis/fooddata_central):
 API wrapper for FoodData Central — a food data system.
 
-- [YouTube Data API](external_apis/youtube_data_api)
+- [YouTube Data API](external_apis/youtube_data_api):
 Getting data about selected YouTube resources.
 
 ### Image Tools
 
-- [Format converter](image_tools/format_converter)
+- [Format converter](image_tools/format_converter):
 Script to convert images from one format to another.
 
 ### Notifications
 
-- [Pusher](notifications/pusher)
+- [Pusher](notifications/pusher):
 API wrapper for the [Pushover](https://pushover.net/) notification service.
 
 ### OS Tools
 
-*upcoming*
+- [Folder](os_tools/folder):
+Folder class which allows to get file sizes and duration of media files.
+
+- File remover: a tiny CLI tool for removing files of selected formats.
+
+- File sizes: another tiny tool which helps to find largest files.
+
 
 ### Scraping
 
-- [Goodreads quotes](scraping/goodreads_quotes)
+- [Goodreads quotes](scraping/goodreads_quotes):
 Sync and async versions of “Popular Quotes” scraper.
 
-- [xkcd comics](scraping/xkcd_comics)
+- [xkcd comics](scraping/xkcd_comics):
 Saving all the comics locally, sync and async versions for comparison.
 
-### Text Utils
+### Words
 
-- [10k Russian words](text_utils/10k_russian_words)
+- [10k Russian words](words/10k_russian_words):
 Extract words from a spreadsheet based on the Russian Learners' Dictionary
 
-- [translit_slugify](text_utils/translit_slugify)
+- [Part of speech](words/part_of_speech):
+Get a part of speech for a word using [pymorphy2](https://github.com/pymorphy2/pymorphy2)
+
+- [Russian word stress](words/russian_word_stress):
+A list words where stressed vowels and their indexes are specified.
+
+- [Translit-slugify](words/translit_slugify):
 Common-sense Russian-English transliteration + slugifying
