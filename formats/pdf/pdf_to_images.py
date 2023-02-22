@@ -27,6 +27,3 @@ def convert_pdf_to_images(file_path: str) -> None:
 
             image.save(f'{new_folder}/page_{page:03}.jpg', 'JPEG')
             print(f'Saved page {page:03}/{num_pages}')
-
-if __name__ == '__main__':
-    convert_pdf_to_images('/home/tanya/Books/Various/Flora Inside the Secret World of Plants by DK.pdf')
