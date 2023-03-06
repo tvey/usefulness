@@ -5,10 +5,10 @@ import os
 from speech_recognition import Recognizer, AudioFile
 from pydub import AudioSegment
 
-AUDIO_FILE_PATH = 'sample.mp3'
+audio_file_path = ''
 
 
-def recognize(mp3_file_path: str) -> None:
+def transcribe(mp3_file_path: str, save_to_file: bool = True) -> str:
     folder = os.path.dirname(mp3_file_path)
     filename = os.path.basename(mp3_file_path)
     name = os.path.splitext(filename)[0]
@@ -21,14 +21,16 @@ def recognize(mp3_file_path: str) -> None:
     r = Recognizer()
     with AudioFile(wav_file_path) as audio_file:
         record = r.record(audio_file)
-        transcription = r.recognize_sphinx(record)
-        transcription_path = os.path.join(folder, f'{name}.txt')
+        transcript = r.recognize_sphinx(record)
 
-        with open(transcription_path, 'w', encoding='utf-8') as f:
-            f.write(transcription)
+    if save_to_file:
+        transcript_path = os.path.join(folder, f'{name}.txt')
+        with open(transcript_path, 'w', encoding='utf-8') as f:
+            f.write(transcript)
+        print(f'Transcription saved: {transcript_path}')
 
-        print(f'Transcription saved: {transcription_path}')
+    return transcript
 
 
 if __name__ == '__main__':
-    recognize(AUDIO_FILE_PATH)
+    transcribe(audio_file_path)

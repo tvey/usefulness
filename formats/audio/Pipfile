@@ -8,6 +8,8 @@ tinytag = "*"
 speechrecognition = "*"
 pydub = "*"
 pocketsphinx = "*"
+pvleopard = "*"
+python-dotenv = "*"
 
 [dev-packages]
 
