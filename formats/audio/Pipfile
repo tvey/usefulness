@@ -5,11 +5,7 @@ name = "pypi"
 
 [packages]
 tinytag = "*"
-speechrecognition = "*"
-pydub = "*"
-pocketsphinx = "*"
-pvleopard = "*"
-python-dotenv = "*"
+openai-whisper = "*"
 
 [dev-packages]
 
