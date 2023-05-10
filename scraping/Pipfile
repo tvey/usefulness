@@ -9,8 +9,9 @@ python-dotenv = "*"
 aiohttp = "*"
 aiofiles = "*"
 beautifulsoup4 = "*"
+requests = "*"
 
 [dev-packages]
 
 [requires]
-python_version = "3.9"
+python_version = "3.10"
