@@ -1,13 +1,25 @@
+import os
 import re
 import urllib.parse
+from urllib.parse import urljoin
 
 import requests
 from bs4 import BeautifulSoup
 
-URL = ''
+ARTIST_URL = ''  # https://www.artsy.net/artist/...
+ARTWORK_URL = ''  # https://www.artsy.net/artwork/...
 
 
-def get_image_info(artwork_url: str) -> dict:
+def get_artwork_urls(artist_url: str) -> list:
+    """Get a list of artwork urls from the artist's page."""
+    r = requests.get(artist_url)
+    soup = BeautifulSoup(r.text, 'html.parser')
+    elems = soup.find_all('a', attrs={'class': ['GridItem__Link-d2n1vy-0']})
+    urls = [urljoin('https://www.artsy.net/', a['href']) for a in elems]
+    return list(set(urls))
+
+
+def save_image(artwork_url: str, save_to: str = '.') -> None:
     r = requests.get(artwork_url)
     soup = BeautifulSoup(r.text, 'html.parser')
     title = soup.find('h1').find('i').text
@@ -16,20 +28,25 @@ def get_image_info(artwork_url: str) -> dict:
     img_url_encoded = re.search(r'src=(https.+jpg)', image_src).group(1)
     image_url = urllib.parse.unquote(img_url_encoded)
     ext = image_url.rsplit('.')[-1]
+    title = f'{title}.{ext}'
+    image_path = os.path.join(save_to, title)
 
-    return {
-        'title': f'{title}.{ext}',
-        'url': image_url,
-    }
+    r = requests.get(image_url)
 
-
-def save_image(image_info: dict) -> None:
-    r = requests.get(image_info['url'])
-
-    with open(image_info['title'], 'wb') as f:
+    with open(image_path, 'wb') as f:
         f.write(r.content)
+    print('✓', image_path)
 
 
-def main():
-    image_info = get_image_info(URL)
-    save_image(image_info)
+if __name__ == '__main__':
+    if ARTWORK_URL:
+        save_image(ARTWORK_URL)
+    elif ARTIST_URL:
+        urls = get_artwork_urls(ARTIST_URL)
+
+        if urls:
+            print(f'{len(urls)} artworks found, downloading')
+            for url in urls:
+                save_image(url)
+        else:
+            print('No artworks for this artist')
