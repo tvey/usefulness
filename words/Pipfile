@@ -7,6 +7,7 @@ name = "pypi"
 wordfreq = "*"
 nltk = "*"
 pymorphy2 = "*"
+pandas = "*"
 
 [dev-packages]
 
