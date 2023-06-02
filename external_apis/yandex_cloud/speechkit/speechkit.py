@@ -1,6 +1,14 @@
+import json
 import os
 
 import requests
+
+with open('voices.json') as f:
+    VOICES = json.load(f)
+
+
+class APIException(Exception):
+    pass
 
 
 class SpeechKit:
@@ -10,13 +18,12 @@ class SpeechKit:
     https://cloud.yandex.com/en-ru/docs/iam/operations/api-key/create
     """
 
-    def __init__(self, api_key):
+    def __init__(self, api_key: str):
         self.api_key = api_key
 
     def synthesize(
         self,
         text: str,
-        lang: str = 'ru-RU',
         voice: str = 'alena',
         emotion: str = 'neutral',
         speed: str = '1.0',
@@ -31,15 +38,15 @@ class SpeechKit:
         voice: https://cloud.yandex.com/en/docs/speechkit/tts/voices.
         emotion: depends on the voice, defaults to 'neutral' for most.
         speed: a decimal number in the range from 0.1 to 3.0.
-        audio_format: either mp3 or oggopus in this wrapper.
+        audio_format: either mp3 or oggopus are accepted in this wrapper.
         filename: if not passed, defaults to first characters of the text.
-
-        To-do:
-        - list langs, voices and emotions
-        - make a text filename-safe
-        - check if save_to path exists
-        - improve the docstring
         """
+        if voice not in VOICES.keys():
+            raise ValueError(f'Unsupported voice: {voice}')
+
+        if emotion != 'neutral' or emotion not in VOICES[voice][emotion]:
+            raise ValueError(f'Unknown emotion "{emotion}" for voice: {voice}')
+
         url = 'https://tts.api.cloud.yandex.net/speech/v1/tts:synthesize'
         headers = {'Authorization': f'Api-Key {self.api_key}'}
         data = {
@@ -51,6 +58,8 @@ class SpeechKit:
         }
 
         r = requests.post(url, headers=headers, data=data)
+        if not r.status_code == 200:
+            raise APIException(r.json().get('error_message'))
 
         file_format = 'mp3'
 
@@ -58,7 +67,14 @@ class SpeechKit:
             file_format = 'ogg'
 
         if not filename:
-            filename = text[:10].strip()  # check text
+            safe_chars = [
+                i for i in text if i.isalnum() or not i in '\\/:*?"<>|'
+            ]
+            safe_text = ''.join(safe_chars).strip()
+            filename = safe_text[:30]
+
+        if not os.path.exists(save_to):
+            raise ValueError('Check "save_to" path, cannot find the directory')
 
         file_path = os.path.join(save_to, f'{filename}.{file_format}')
         with open(file_path, 'wb') as f:

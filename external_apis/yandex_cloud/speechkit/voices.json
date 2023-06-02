@@ -1,0 +1,78 @@
+{
+    "alena": {
+        "lang": "ru-RU",
+        "emotion": [
+            "neutral",
+            "good"
+        ],
+        "gender": "f"
+    },
+    "filipp": {
+        "lang": "ru-RU",
+        "emotion": [],
+        "gender": "m"
+    },
+    "ermil": {
+        "lang": "ru-RU",
+        "emotion": [
+            "neutral",
+            "good"
+        ],
+        "gender": "m"
+    },
+    "jane": {
+        "lang": "ru-RU",
+        "emotion": [
+            "neutral",
+            "good",
+            "evil"
+        ],
+        "gender": "f"
+    },
+    "madirus": {
+        "lang": "ru-RU",
+        "emotion": [],
+        "gender": "m"
+    },
+    "omazh": {
+        "lang": "ru-RU",
+        "emotion": [
+            "neutral",
+            "evil"
+        ],
+        "gender": "f"
+    },
+    "zahar": {
+        "lang": "ru-RU",
+        "emotion": [
+            "neutral",
+            "good"
+        ],
+        "gender": "m"
+    },
+    "john": {
+        "lang": "en-US",
+        "emotion": [],
+        "gender": "m"
+    },
+    "lea": {
+        "lang": "de-DE",
+        "emotion": [],
+        "gender": "f"
+    },
+    "amira": {
+        "lang": "kk-KK",
+        "emotion": [],
+        "gender": "f"
+    },
+    "madi": {
+        "lang": "kk-KK",
+        "emotion": [],
+        "gender": "m"
+    },
+    "nigora": {
+        "lang": "uz-UZ",
+        "emotion": [],
+        "gender": "f"
+    }
+}
