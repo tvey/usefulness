@@ -9,6 +9,7 @@ Code snippets and small tools in Python that proved useful in various situations
 - [Data Analysis](#data-analysis)
 - [Dates](#dates)
 - [Externals APIs](#externals-apis)
+- [Formats](#formats)
 - [Image Tools](#image-tools)
 - [Notifications](#notifications)
 - [OS Tools](#os-tools)
@@ -32,6 +33,10 @@ API wrapper for FoodData Central — a food data system.
 - [YouTube Data API](external_apis/youtube_data_api):
 Getting data about selected YouTube resources.
 
+### Formats
+
+Snippets that were used with different file formats, be it audio, ebooks or archives.
+
 ### Image Tools
 
 - [Format converter](image_tools/format_converter):
@@ -50,7 +55,6 @@ Folder class which allows to get file sizes and duration of media files.
 - File remover: a tiny CLI tool for removing files of selected formats.
 
 - File sizes: another tiny tool which helps to find largest files.
-
 
 ### Scraping
 

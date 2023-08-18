@@ -54,7 +54,7 @@ def show_files(root, num=10):
 
 parser = argparse.ArgumentParser(
     prog='File sizes',
-    usage='%(prog)s [options] root num',
+    usage='%(prog)s [options] root -num',
     description='Remove unneeded files from a folder and subfolders.',
 )
 

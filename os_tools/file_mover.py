@@ -16,9 +16,12 @@ def move_file_to_same_name_folder(file_path: str):
         os.rename(file_path, new_file_path)
         print(f'Moved: {new_file_path}')
     except FileExistsError:
-        print('File exists in the folder with the same name')
-        # duplicate_filename = f'{name} (duplicate){ext}'
-        # duplicate_path = os.path.join(parent_folder, duplicate_filename)
-        # os.rename(file_path, duplicate_path)
+        duplicate_filename = f'{name} (duplicate){ext}'
+        duplicate_path = os.path.join(parent_folder, duplicate_filename)
+        os.rename(file_path, duplicate_path)
 
-        # move_file_to_same_name_folder(duplicate_path)
+        move_file_to_same_name_folder(duplicate_path)
+
+
+def move_files_from_subfolders(root: str):
+    pass

@@ -4,15 +4,11 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-pillow = "*"
-requests = "*"
-matplotlib = "*"
-mutagen = "*"
-opencv-python = "*"
-numpy = "*"
+webcolors = "*"
+randomcolor = "*"
+faker = "*"
 
 [dev-packages]
-pytest = "*"
 
 [requires]
 python_version = "3.10"
