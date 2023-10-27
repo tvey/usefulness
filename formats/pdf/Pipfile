@@ -8,6 +8,7 @@ pdf2image = "*"
 pypdf2 = "*"
 "pdfminer.six" = "*"
 pikepdf = "*"
+pdf2docx = "*"
 
 [dev-packages]
 
