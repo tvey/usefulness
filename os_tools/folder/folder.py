@@ -1,10 +1,8 @@
-"""Folder class that calculates total duration of selected media files.
-For now...
+"""Folder class calculates total duration of selected media files
+and total folder size in human-readable format or in ints of seconds/bytes.
 """
-
 import datetime
 import os
-from typing import Union
 
 import humanize
 from tinytag import TinyTag
@@ -26,7 +24,7 @@ class Folder:
 
     @property
     def files(self) -> list[str]:
-        """List of full paths to files in folder and subfolders."""
+        """List full paths to files in folder and subfolders."""
         file_paths = []
         for root, subs, files in os.walk(self.path):
             for file in files:
@@ -37,10 +35,10 @@ class Folder:
 
     @property
     def media_files(self) -> list[str]:
-        """List of full paths of selected files."""
+        """List full paths of selected files."""
         return [i for i in self.files if i.endswith(self.supported_formats)]
 
-    def get_size(self, human=False) -> Union[int, str]:
+    def get_size(self, human: bool = False) -> int | str:
         """Get total size, bytes or human-readable."""
         total_size = 0
 
@@ -56,7 +54,7 @@ class Folder:
         """Folder size in human-readable format."""
         return self.get_size(human=True)
 
-    def get_duration(self, human=False) -> Union[int, str]:
+    def get_duration(self, human=False) -> int | str:
         """Get total duration, seconds (int) or human-readable."""
         duration = 0
         for file in self.media_files:
