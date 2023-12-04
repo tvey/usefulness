@@ -1,6 +1,6 @@
 import os
 
-from PIL import Image
+from PIL import Image, UnidentifiedImageError
 
 
 def convert_to_pdf(
@@ -28,10 +28,10 @@ def convert_to_pdf(
         for image in images:
             try:
                 converted_images.append(Image.open(image).convert('RGB'))
-            except PIL.UnidentifiedImageError:
-                print(f'! Not added: {image}')
+            except UnidentifiedImageError:
+                print(f'! Unidentified image, skipping: {image}')
+                continue
 
-        converted_images = [Image.open(i).convert('RGB') for i in images]
         converted_images[0].save(
             output_file,
             'PDF',
