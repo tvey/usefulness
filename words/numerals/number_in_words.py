@@ -3,6 +3,7 @@
 Число может быть с дробной частью и отрицательными.
 Результат — только количественное числительное.
 """
+from constants import numerals, orders
 
 
 def handle_initial_value(value: float | int | str) -> dict:
@@ -29,10 +30,21 @@ def handle_initial_value(value: float | int | str) -> dict:
     }
 
 
-def convert_thousands(value: int, position) -> str:
-    """"""
-    if not value:
+def convert_part(num: int, position: int | None = None) -> str:
+    """Make words from a less-than-1000 part of the split number."""
+    if not num:
         return ''
+
+    hundreds, rest = (num - num % 100), num % 100
+    if rest > 20:
+        tens = rest - rest % 10
+        units = num - hundreds - tens
+        values = [hundreds, tens, units]
+    else:
+        values = [hundreds, 0, rest]
+
+    text_values = [numerals.get(i) for i in values if i]
+    return ' '.join(text_values)
 
 
 def get_number_in_words(
@@ -48,4 +60,4 @@ def get_number_in_words(
         pass
 
     for i, part in enumerate(number_info['integer_parts']):
-        convert_thousands(part, i)
+        print(convert_part(part, i))
