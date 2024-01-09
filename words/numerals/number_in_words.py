@@ -7,7 +7,7 @@ from constants import numerals, orders
 
 
 def handle_initial_value(value: float | int | str) -> dict:
-    """"""
+    """Create info about the value."""
     if isinstance(value, str) and ',' in value:
         value = value.replace(',', '.')
 
@@ -20,8 +20,9 @@ def handle_initial_value(value: float | int | str) -> dict:
     fractional_part = 0
     if not number.is_integer() or number < 10**9:
         fractional_part = round(number % 1, 2)
-    integer = int(number - fractional_part)
+    integer = abs(int(number - fractional_part))
     integer_parts = [int(i) for i in f'{integer:,}'.split(',')]
+    print(integer_parts)
 
     return {
         'integer_parts': integer_parts,
@@ -43,6 +44,12 @@ def convert_part(num: int, position: int | None = None) -> str:
     else:
         values = [hundreds, 0, rest]
 
+    # get order
+
+    # depending on "rest" get order form
+
+    # join parts
+
     text_values = [numerals.get(i) for i in values if i]
     return ' '.join(text_values)
 
@@ -59,5 +66,7 @@ def get_number_in_words(
     if number_info['fractional_part']:
         pass
 
-    for i, part in enumerate(number_info['integer_parts']):
+    result_parts = []
+
+    for i, part in enumerate(number_info['integer_parts'][::-1], -1):  # reverse
         print(convert_part(part, i))
