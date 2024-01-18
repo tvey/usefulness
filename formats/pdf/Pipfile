@@ -9,8 +9,9 @@ pypdf2 = "*"
 "pdfminer.six" = "*"
 pikepdf = "*"
 pdf2docx = "*"
+pypdf = "*"
 
 [dev-packages]
 
 [requires]
-python_version = "3.10"
+python_version = "3.11"
