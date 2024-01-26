@@ -1,8 +1,11 @@
 """Получаем число прописью.
-Опционно можно передать единицу измерения.
-Число может быть с дробной частью и отрицательными.
+Есть возможность передать единицу измерения.
+Число может быть с дробной частью и отрицательным.
+Дробная часть будет округлена до сотых.
 Результат — только количественное числительное.
 """
+import pymorphy2  # up to python 3.10
+
 from constants import numerals, orders
 
 
@@ -22,7 +25,6 @@ def handle_initial_value(value: float | int | str) -> dict:
         fractional_part = round(number % 1, 2)
     integer = abs(int(number - fractional_part))
     integer_parts = [int(i) for i in f'{integer:,}'.split(',')]
-    print(integer_parts)
 
     return {
         'integer_parts': integer_parts,
@@ -31,7 +33,14 @@ def handle_initial_value(value: float | int | str) -> dict:
     }
 
 
-def convert_part(num: int, position: int | None = None) -> str:
+def make_agree(word: str, number: int):
+    """Make an appropriate form of the word following the number."""
+    morph = pymorphy2.MorphAnalyzer(lang='ru')
+    order_morph = morph.parse(word)[0]
+    return order_morph.make_agree_with_number(number).word
+
+
+def convert_part(num: int, position: int) -> str:
     """Make words from a less-than-1000 part of the split number."""
     if not num:
         return ''
@@ -44,29 +53,51 @@ def convert_part(num: int, position: int | None = None) -> str:
     else:
         values = [hundreds, 0, rest]
 
-    # get order
+    order = ''
+    last_num = values[-1]
 
-    # depending on "rest" get order form
+    if position == -2:  # for fractional
+        pass
+    elif position == -1:  # below 1000
+        order = ''
+    else:
+        order = make_agree(orders[position], last_num)
 
-    # join parts
+    text_nums = [numerals.get(i) for i in values if i]
+    if position == 0 and last_num in [1 + j for j in range(0, 100, 10)]:
+        text_nums[-1] = 'одна'
+    elif position == 0 and last_num in [2 + j for j in range(0, 100, 10)]:
+        text_nums[-1] = 'две'
 
-    text_values = [numerals.get(i) for i in values if i]
-    return ' '.join(text_values)
+    text_value = ' '.join(text_nums)
+    if order:
+        return f'{text_value} {order}'
+    return text_value
 
 
 def get_number_in_words(
     value: float | int | str,
     integer_noun: str = '',
     fractional_noun: str = '',
-    # round_up: bool = True,
 ) -> str:
     """"""
     number_info = handle_initial_value(value)
 
-    if number_info['fractional_part']:
-        pass
+    # handle zero
 
-    result_parts = []
+    if number_info['fractional_part']:
+        frac_part = convert_part(number_info['fractional_part'], -2)  # finish
+
+    converted_parts = []
 
     for i, part in enumerate(number_info['integer_parts'][::-1], -1):  # reverse
-        print(convert_part(part, i))
+        part_text = convert_part(part, i)
+        converted_parts.append(part_text)
+
+    result_parts = [i for i in converted_parts[::-1] if i]
+    print(f'{value:_}')
+    print(' '.join(result_parts))
+
+
+if __name__ == '__main__':
+    get_number_in_words(1000022302)
