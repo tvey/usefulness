@@ -13,8 +13,8 @@ morph = pymorphy2.MorphAnalyzer(lang='ru')
 
 def handle_initial_value(value: float | int | str) -> dict:
     """Create info about the value."""
-    if isinstance(value, str) and ',' in value:
-        value = value.replace(',', '.')
+    if isinstance(value, str) and (',' in value or ' ' in value):
+        value = value.replace(',', '.').replace(' ', '')
 
     try:
         number = float(value)
@@ -22,39 +22,44 @@ def handle_initial_value(value: float | int | str) -> dict:
         raise ValueError(f'Incorrect input value: {value}')
 
     is_negative = number < 0
+    number = abs(number)
     fractional_part = 0
     if not number.is_integer() and number < 10**9:
         fractional_part = round(number % 1, 2)
-    integer = abs(int(number - fractional_part))
+    integer = int(number - fractional_part)
     integer_parts = [int(i) for i in f'{integer:,}'.split(',')]
 
     return {
+        'number': float(value),
         'integer_parts': integer_parts,
         'fractional_part': int(fractional_part * 100),
         'is_negative': is_negative,
     }
 
 
-def match_word_with_number(word: str, number: int):
+def normalize_word(word: str) -> str:
+    """Make sure the word is in a base form for correct pymorphy2 handling."""
+    return morph.parse(word)[0].normal_form
+
+
+def match_num_and_noun(num: int, num_in_words: str, noun: str) -> str:
     """Make an appropriate form of the word following the number."""
-    order_morph = morph.parse(word)[0]
-    return order_morph.make_agree_with_number(number).word
-
-
-def match_word_gender(num: int, number_in_words: str, word: str) -> str:
-    """Handle forms of 1 and 2 for feminine and neutral genders."""
     forms = {'femn': {1: 'одна', 2: 'две'}, 'neut': {1: 'одно'}}
-    word_gender = morph.parse(word)[0].tag.gender
+    word_morph = morph.parse(noun)[0]
+    matched_word = word_morph.make_agree_with_number(num).word
+    word_gender = word_morph.tag.gender
+    non_hundreds_part = num % 100
+    ends_1_2 = [1, 2] + [i + j for i in [1, 2] for j in range(20, 100, 10)]
 
-    if word_gender:
-        form = forms.get(word_gender, {}).get(num)
-        return ' '.join(number_in_words.split(' ')[:-1] + [form])
+    if non_hundreds_part in ends_1_2:
+        if word_gender and word_gender in ['femn', 'neut']:
+            form = forms.get(word_gender, {}).get(num)
+            num_in_words = ' '.join(num_in_words.split(' ')[:-1] + [form])
 
-    return number_in_words
+    return f'{num_in_words} {matched_word}'
 
 
-def convert_part(num: int, position: int) -> str:
-    """Make words from a less-than-1000 part of the split number."""
+def convert_part(num: int, noun: str = '') -> str:
     if not num:
         return ''
 
@@ -66,67 +71,57 @@ def convert_part(num: int, position: int) -> str:
     else:
         values = [hundreds, 0, rest]
 
-    order = ''
-    last_num = values[-1]
+    words = [numerals.get(i) for i in values if i]
+    num_in_words = ' '.join(words)
 
-    if position == -2:  # for fractional
-        pass
-    elif position == -1:  # below 1000
-        order = ''
-    else:
-        order = match_word_with_number(orders[position], last_num)
+    if noun:
+        num_in_words = match_num_and_noun(num, num_in_words, noun)
 
-    text_nums = [numerals.get(i) for i in values if i]
-    if position == 0 and last_num in [1 + j for j in range(0, 100, 10)]:
-        text_nums[-1] = 'одна'
-    elif position == 0 and last_num in [2 + j for j in range(0, 100, 10)]:
-        text_nums[-1] = 'две'
-
-    text_value = ' '.join(text_nums)
-    if order:
-        return f'{text_value} {order}'
-    return text_value
+    return num_in_words
 
 
 def get_number_in_words(
-    number: float | int | str,
-    integer_noun: str = '',
-    fractional_noun: str = '',
+    value: float | int | str,
+    int_noun: str = '',
+    frac_noun: str = '',
 ) -> str:
     """"""
-    number_info = handle_initial_value(number)
+    if not value:
+        return convert_part(0, int_noun)
+    info = handle_initial_value(value)
+    integer_parts, frac_part = info['integer_parts'], info['fractional_part']
     converted_parts = []
 
-    for i, part in enumerate(number_info['integer_parts'][::-1], -1):  # reverse
-        part_text = convert_part(part, i)
+    for order, part in enumerate(integer_parts[::-1], -1):
+        if order >= 0:
+            order_noun = orders[order]
+            part_text = convert_part(part, order_noun)
+        elif int_noun:
+            part_text = convert_part(part, normalize_word(int_noun))
+        else:
+            part_text = convert_part(part)
         converted_parts.append(part_text)
 
     number_in_words = ' '.join([i for i in converted_parts[::-1] if i])
-    print(f'{number:_}')
 
-    last_part = number_info['integer_parts'][-1]
-    last_part_str = str(number_info['integer_parts'][-1])[-2:]
-    if integer_noun:
-        matched_integer_noun = match_word_with_number(integer_noun, last_part)
+    if frac_part:
+        frac_in_words = convert_part(frac_part, normalize_word(frac_noun))
+        if not int_noun:
+            number_in_words = f'{number_in_words} целых {frac_in_words}'.strip()
+        else:
+            number_in_words = f'{number_in_words} {frac_in_words}'.strip()
 
-        if last_part_str[-1] == '1' and last_part_str != '11':
-            number_in_words = match_word_gender(1, number_in_words, integer_noun)
-        if last_part_str[-1] == '2' and last_part_str != '12':
-            number_in_words = match_word_gender(2, number_in_words, integer_noun)
 
-        number_in_words = f'{number_in_words} {matched_integer_noun}'
+    if info['is_negative']:
+        number_in_words = f'минус {number_in_words}'
 
-    print(number_in_words)
-
-    if number and number_info['fractional_part']:
-        frac_part = convert_part(number_info['fractional_part'], -2)  # finish
-
-    # handle minus
-
-    # handle zero
+    print(f'{info["number"]:_}:', number_in_words)
+    return number_in_words
 
 
 if __name__ == '__main__':
     get_number_in_words(33, 'корова')
-    get_number_in_words(3, 'ведро')
-    get_number_in_words(1234567, 'рубль')
+    get_number_in_words(321000122.12, 'рубль', 'копейка')
+    get_number_in_words(-121349900.12, 'доллары', 'центы')
+    get_number_in_words('0.12345', frac_noun='долей')
+    get_number_in_words('123 345,678')
