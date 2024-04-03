@@ -7,10 +7,11 @@ name = "pypi"
 requests = "*"
 python-dotenv = "*"
 requests-cache = "*"
+pytz = "*"
 
 [dev-packages]
 pytest = "*"
 pytest-cov = "*"
 
 [requires]
-python_version = "3.9"
+python_version = "3.12"
